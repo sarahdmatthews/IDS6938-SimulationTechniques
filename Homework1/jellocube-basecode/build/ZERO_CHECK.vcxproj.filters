@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\build\CMakeFiles\6ccf3960eb5342a5a3172e5bc949dab3\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{5EE179ED-74B8-3B46-9B66-9FD98FAB4F22}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

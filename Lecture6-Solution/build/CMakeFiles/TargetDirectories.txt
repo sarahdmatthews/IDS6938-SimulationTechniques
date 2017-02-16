@@ -1,0 +1,3 @@
+C:/Users/sbull99/Desktop/IDS6938-SimulationTechniques/Lecture6-Solution/build/CMakeFiles/helloworld.dir
+C:/Users/sbull99/Desktop/IDS6938-SimulationTechniques/Lecture6-Solution/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/sbull99/Desktop/IDS6938-SimulationTechniques/Lecture6-Solution/build/CMakeFiles/ZERO_CHECK.dir

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Lecture6-Solution\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Lecture6-Solution\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{A0A9C7F8-AF6F-3E1D-8240-48D88C7EE8E7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
