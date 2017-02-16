@@ -11,14 +11,14 @@ double JelloMesh::g_shearKs = 0.0;
 double JelloMesh::g_shearKd = 0.0;
 double JelloMesh::g_bendKs = 0.0;
 double JelloMesh::g_bendKd = 0.0;
-double JelloMesh::g_penaltyKs = 0.0;
+double JelloMesh::g_penaltyKs =0.0;
 double JelloMesh::g_penaltyKd = 0.0;
 
 JelloMesh::JelloMesh() :     
     m_integrationType(JelloMesh::RK4), m_drawflags(MESH | STRUCTURAL),
     m_cols(0), m_rows(0), m_stacks(0), m_width(0.0), m_height(0.0), m_depth(0.0)
 {
-    SetSize(1.0, 1.0, 1.0);
+	SetSize(1.0, 1.0, 1.0);
     SetGridSize(6, 6, 6);
 }
 

@@ -96,7 +96,8 @@ int main()
 	double y_midpoint = 0.0;
 	double y_RK4 = 0.0;
     double x = 0.0;
-    double h = 0.1;
+    double h = 0.4;
+
 
 	std::cout << std::fixed << std::showpoint;
     // Header information for column printouts
@@ -108,7 +109,7 @@ int main()
 	//intial values
 	std::cout<< toString(x, y_euler, y_midpoint, y_RK4, exact(x), 10) << std::endl;
 
-    for (int i = 0; i < 50; i++)
+    for (int i = 0; i < 25; i++)
     {
 		y_euler = rk1(y_euler,h,x);  //caculate y_{i+1}
 		y_midpoint = rk2(y_midpoint, h, x);  //caculate y_{i+1}
