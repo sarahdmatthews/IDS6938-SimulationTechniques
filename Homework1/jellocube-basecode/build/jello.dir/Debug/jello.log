@@ -1,3 +1,11 @@
 ﻿  jelloMesh.cpp
 C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(254): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
-  jello.vcxproj -> C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\build\Debug\jello.exe
+C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(487): error C2374: 'cylinderStart': redefinition; multiple initialization
+  C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(481): note: see declaration of 'cylinderStart'
+C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(488): error C2374: 'cylinderEnd': redefinition; multiple initialization
+  C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(482): note: see declaration of 'cylinderEnd'
+C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(489): error C2374: 'cylinderAxis': redefinition; multiple initialization
+  C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(483): note: see declaration of 'cylinderAxis'
+C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(489): error C2088: '-': illegal for class
+C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(490): error C2374: 'cylinderRadius': redefinition; multiple initialization
+  C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(484): note: see declaration of 'cylinderRadius'
