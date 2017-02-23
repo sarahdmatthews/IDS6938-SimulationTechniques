@@ -434,13 +434,14 @@ void JelloMesh::ComputeForces(ParticleGrid& grid)
     // Update springs
     for(unsigned int i = 0; i < m_vsprings.size(); i++)
     {
-        Spring& spring = m_vsprings[i];
-        Particle& a = GetParticle(grid, spring.m_p1);
-        Particle& b = GetParticle(grid, spring.m_p2);
+        Spring& spring = m_vsprings[i];//lookup the i^th spring
+        Particle& a = GetParticle(grid, spring.m_p1);//lookup the particle at one end of spring
+        Particle& b = GetParticle(grid, spring.m_p2);//lookup the particle at the other end
 
-        // TODO F=a+b
-		a.force +b.force = 
-    }
+        // TODO  Hooks Law and Damping  Sum of the force should equal this
+		vec3 a.force = -spring.m_Ks* (a.position - b.position) - spring.m_restLen)* ((b.position - a.position / sqrt ((a.position - b.position)*(a.position - b.position)); //elastic force of the spring
+		vec3 b.force = -spring.m_Kd* (((b.velocity-a.velocity)* (a.position - b.position) / sqrt((a.position - b.position)*(a.position - b.position)))) * ((a.position - b.position)/ sqrt((a.position - b.position)*(a.position - b.position));  //damping force of a spring
+		vec3 a.force + b.force    } //Sum of Forces Ftotal=Felastic + Fdamping
 }
 
 void JelloMesh::ResolveContacts(ParticleGrid& grid)
@@ -472,27 +473,30 @@ bool JelloMesh::FloorIntersection(Particle& p, Intersection& intersection)
 {
 	
     // TODO
-	World::Ground->p.position[1]; //contact floor at y axis p.position[1]
-	else if p.position[1] < 100;
+	Intersection.m_p.=1;
+	Intersection.m_normal=1;
+	Intersection.m_distance= 0;
+	IntersectionType.m_type =CONTACT;
+	
+	p.position[1] < 0;//contact floor at y axis p.position[1]
+	cout << "Hit the floor"; 
 
-    return true;
+    return false;
 }
 
-bool JelloMesh::CylinderIntersection(Particle& p, World::Cylinder* cylinder, 
-                                 JelloMesh::Intersection& result)
-{
-    vec3 cylinderStart = cylinder->start = vec3(0.20, 0.0, 0.00);
-    vec3 cylinderEnd = cylinder->end = vec3(2.0, 1.0, 0.00);
-    vec3 cylinderAxis = cylinderEnd - cylinderStart;
-    double cylinderRadius = cylinder->r =0.1; 
+	bool JelloMesh::CylinderIntersection(Particle& p, World::Cylinder* cylinder,
+		JelloMesh::Intersection& result)
+	{
+		vec3 cylinderStart = cylinder->start;
+		vec3 cylinderEnd = cylinder->end;
+		vec3 cylinderAxis = cylinderEnd - cylinderStart;
+		double cylinderRadius = cylinder->r;
+	
 
     // TODO
-	vec3 cylinderStart = cylinder->start = vec3(0.14, 0.0, 0.14);
-	vec3 cylinderEnd = cylinder->end = vec3(1.41, 1.0, 1.41);
-	vec3 cylinderAxis = cylinderEnd - cylinderStart;
-	double cylinderRadius = cylinder->r = 0.1;
 	
-    return true;
+	
+    return false;
 }
 
 void JelloMesh::EulerIntegrate(double dt)
@@ -808,7 +812,7 @@ JelloMesh::Particle& JelloMesh::Particle::operator=(const JelloMesh::Particle& p
     if (&p == this) return *this;
 
     index = p.index;
-    position = p.position;
+    position = p.position; //y axis
     velocity = p.velocity;
     force = p.force;
     mass = p.mass;

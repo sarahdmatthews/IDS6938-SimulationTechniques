@@ -25,23 +25,23 @@ Exact form: y(x)=2.71828^(0.5 x) sin(5 x)
 
 C: graph named part 1 c graph 
 
-|![](images/Part1cgraph.pgn?/raw=true)  | ![](images/Part1cgraph.pgn?/raw=true) |
+|![](images/Part1cgraph.png?/raw=true)  | ![](images/Part1cgraph.png?/raw=true) |
 
 |-------------|-------------|
 
 D: graph named part 1 d graph
 
-|![](images/Part1dgraph.pgn?/raw=true)  | ![](images/Part1dgraph.pgn?/raw=true) |
+|![](images/Part1dgraph.png?/raw=true)  | ![](images/Part1dgraph.png?/raw=true) |
 
 |-------------|-------------|
 
 E: graph named part 1 e graph RK4 Results and part 1 e graph RK4 Percent Error
 
-|![](images/Part1egraphRK4Results.pgn?/raw=true)  | ![](images/Part1egraphRK4Results.pgn?/raw=true) |
+|![](images/Part1egraphRK4Results.png?/raw=true)  | ![](images/Part1egraphRK4Results.png?/raw=true) |
 
 |-------------|-------------|
 
-|![](images/Part1egraphRK4PercentError.pgn?/raw=true)  | ![](images/Part1egraphRK4PercentError.pgn?/raw=true) |
+|![](images/Part1egraphRK4PercentError.png?/raw=true)  | ![](images/Part1egraphRK4PercentError.png?/raw=true) |
 
 |-------------|-------------|
 

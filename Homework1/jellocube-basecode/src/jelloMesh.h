@@ -148,6 +148,7 @@ protected:
         Particle& operator=(const Particle& p);
         Particle(int idx, const vec3& pos, const vec3& vel = vec3(0,0,0), double m = 1);
 
+		//member variables
         int index;
         vec3 position;
         vec3 velocity;
@@ -166,12 +167,13 @@ protected:
         Spring(SpringType t, int p1, int p2, 
             double Ks, double Kd, double restLen);
 
+		//member variables of springs
         SpringType m_type;
-        int m_p1;
-        int m_p2;
-        double m_Ks;
-        double m_Kd;
-        double m_restLen;
+        int m_p1;//INDEX into the particle list for particle A
+        int m_p2;//INDEX  into the particle list for particle B
+        double m_Ks;//spring constant
+        double m_Kd;//damping constant
+        double m_restLen;//spring at rest length
     };
 
     enum IntersectionType { CONTACT, COLLISION };

@@ -1,11 +1,25 @@
 ﻿  jelloMesh.cpp
 C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(254): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
-C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(487): error C2374: 'cylinderStart': redefinition; multiple initialization
-  C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(481): note: see declaration of 'cylinderStart'
-C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(488): error C2374: 'cylinderEnd': redefinition; multiple initialization
-  C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(482): note: see declaration of 'cylinderEnd'
-C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(489): error C2374: 'cylinderAxis': redefinition; multiple initialization
-  C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(483): note: see declaration of 'cylinderAxis'
-C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(489): error C2088: '-': illegal for class
-C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(490): error C2374: 'cylinderRadius': redefinition; multiple initialization
-  C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(484): note: see declaration of 'cylinderRadius'
+C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(442): error C3927: '->': trailing return type is not allowed after a non-function declarator
+C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(442): error C3484: syntax error: expected '->' before the return type
+C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(442): error C3613: missing return type after '->' ('int' assumed)
+C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(442): error C2040: 'a': 'vec3' differs in levels of indirection from 'JelloMesh::Particle &'
+C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(442): error C2146: syntax error: missing ';' before identifier 'force'
+C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(442): error C2065: 'force': undeclared identifier
+C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(442): error C2059: syntax error: ')'
+C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(442): error C2143: syntax error: missing ')' before ';'
+C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(442): error C2059: syntax error: ';'
+C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(443): error C3927: '->': trailing return type is not allowed after a non-function declarator
+C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(443): error C3484: syntax error: expected '->' before the return type
+C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(443): error C3613: missing return type after '->' ('int' assumed)
+C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(443): error C2040: 'b': 'vec3' differs in levels of indirection from 'JelloMesh::Particle &'
+C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(443): error C2146: syntax error: missing ';' before identifier 'force'
+C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(443): error C2065: 'force': undeclared identifier
+C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(443): error C2059: syntax error: ';'
+C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(444): error C3927: '->': trailing return type is not allowed after a non-function declarator
+C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(444): error C3484: syntax error: expected '->' before the return type
+C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(444): error C3613: missing return type after '->' ('int' assumed)
+C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(444): error C2146: syntax error: missing ';' before identifier 'force'
+C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(444): error C2065: 'force': undeclared identifier
+C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(444): error C2143: syntax error: missing ';' before '}'
+C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(477): warning C4552: '<': operator has no effect; expected operator with side-effect
