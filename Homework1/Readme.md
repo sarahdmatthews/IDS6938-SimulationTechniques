@@ -12,7 +12,7 @@ The assignment is due: Monday, February 27 at 11:59PM (EST)
 | ![](images/undeformed3.png?raw=true)  | ![](images/deformed3.png?raw=true) |
 
 
-Part 1:
+##Part 1:
 A & B:
 
 y'(x)= (y- ((1/2)*e^(x/2)) * sin(5x))+ (5e^(x/2) * cos5x), y(0)=0 (equation placed in Wolfram Alpha)
@@ -21,29 +21,29 @@ Returned approximate form: y(x) = e^(x/2) sin(5 x)
 
 Exact form: y(x)=2.71828^(0.5 x) sin(5 x)
 
-|-------------|-------------|
+- - -
 
 C: graph named part 1 c graph 
 
 |![](images/Part1cgraph.png?/raw=true)  | ![](images/Part1cgraph.png?/raw=true) |
 
-|-------------|-------------|
+- - -
 
 D: graph named part 1 d graph
 
 |![](images/Part1dgraph.png?/raw=true)  | ![](images/Part1dgraph.png?/raw=true) |
 
-|-------------|-------------|
+- - -
 
 E: graph named part 1 e graph RK4 Results and part 1 e graph RK4 Percent Error
 
 |![](images/Part1egraphRK4Results.png?/raw=true)  | ![](images/Part1egraphRK4Results.png?/raw=true) |
 
-|-------------|-------------|
+- - -
 
 |![](images/Part1egraphRK4PercentError.png?/raw=true)  | ![](images/Part1egraphRK4PercentError.png?/raw=true) |
 
-|-------------|-------------|
+ - - -
 
 F: In theory varying the integration methods towards higher order introduces more accuracy and less error. 
 
@@ -59,7 +59,7 @@ In other words, Euler method is the least accurate for integrating the equation.
 
 (4)The method that is most accurate is RK4 with the lower step size of h=0.3, the percent error is lesser than the other steps size in RK4.  
 
-|-------------|-------------|
+- - -
 
 Part 3:
 
