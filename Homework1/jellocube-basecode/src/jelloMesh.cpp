@@ -3,8 +3,8 @@
 #include <algorithm>
 
 // TODO
-double JelloMesh::g_structuralKs = 0.0; 
-double JelloMesh::g_structuralKd = 0.0; 
+double JelloMesh::g_structuralKs = 1000.0; 
+double JelloMesh::g_structuralKd = 11.0; 
 double JelloMesh::g_attachmentKs = 0.0;
 double JelloMesh::g_attachmentKd = 0.0;
 double JelloMesh::g_shearKs = 0.0;
@@ -437,11 +437,15 @@ void JelloMesh::ComputeForces(ParticleGrid& grid)
         Spring& spring = m_vsprings[i];//lookup the i^th spring
         Particle& a = GetParticle(grid, spring.m_p1);//lookup the particle at one end of spring
         Particle& b = GetParticle(grid, spring.m_p2);//lookup the particle at the other end
-
-        // TODO  Hooks Law and Damping  Sum of the force should equal this
-		vec3 a.force = -spring.m_Ks* (a.position - b.position) - spring.m_restLen)* ((b.position - a.position / sqrt ((a.position - b.position)*(a.position - b.position)); //elastic force of the spring
-		vec3 b.force = -spring.m_Kd* (((b.velocity-a.velocity)* (a.position - b.position) / sqrt((a.position - b.position)*(a.position - b.position)))) * ((a.position - b.position)/ sqrt((a.position - b.position)*(a.position - b.position));  //damping force of a spring
-		vec3 a.force + b.force    } //Sum of Forces Ftotal=Felastic + Fdamping
+		vec3 diff = a.position - b.position;
+		double dist = diff.Length();
+		 // TODO  Hooks Law and Damping  Sum of the force should equal this
+		
+		//vec3 force_new = -spring.m_Ks* (a.position - b.position) - spring.m_restLen)* ((b.position - a.position / sqrt((a.position - b.position)*(a.position - b.position)); //elastic force of the spring
+		vec3 force_new = -(spring.m_Ks * (dist - spring.m_restLen) + spring.m_Kd * (((b.velocity-a.velocity)* diff) /dist)) * (diff/dist);
+		a.force = a.force+  force_new;   // a.force += force_new;
+		b.force += -force_new;
+		  } //Sum of Forces Ftotal=Felastic + Fdamping
 }
 
 void JelloMesh::ResolveContacts(ParticleGrid& grid)
@@ -451,8 +455,12 @@ void JelloMesh::ResolveContacts(ParticleGrid& grid)
        const Intersection& contact = m_vcontacts[i];
        Particle& p = GetParticle(grid, contact.m_p);
        vec3 normal = contact.m_normal; 
+	   float r = 10;
 
-        // TODO
+		   // TODO
+		   p.force= p.force* 10;
+		   p.velocity = p.velocity + -2 * ((p.velocity*(normal))*(normal*r));
+		
     }
 }
 
@@ -464,22 +472,38 @@ void JelloMesh::ResolveCollisions(ParticleGrid& grid)
         Particle& pt = GetParticle(grid, result.m_p);
         vec3 normal = result.m_normal;
         float dist = result.m_distance;
+		float r = 10;
 
         // TODO
+		pt.velocity = pt.velocity + -2 * ((pt.velocity*(normal))*(normal*r));
+		pt.position = pt.position + dist * normal;
+
 	}
 }
 
 bool JelloMesh::FloorIntersection(Particle& p, Intersection& intersection)
 {
-	
-    // TODO
-	Intersection.m_p.=1;
-	Intersection.m_normal=1;
-	Intersection.m_distance= 0;
-	IntersectionType.m_type =CONTACT;
-	
-	p.position[1] < 0;//contact floor at y axis p.position[1]
-	cout << "Hit the floor"; 
+
+	// TODO
+
+	if (p.position[1] <= 0.0);//contact floor at y axis p.position[1]
+	{
+		intersection.m_p = p.index;
+		intersection.m_normal = vec3(0, 1, 0);
+		intersection.m_distance = p.position[1];
+		intersection.m_type = IntersectionType(COLLISION);
+		return true;
+	}
+	if (p.position[1] < 0.1)
+	{
+		intersection.m_p = p.index;
+		intersection.m_normal = vec3(0, 1, 0);
+		intersection.m_distance = p.position[1];
+		intersection.m_type = IntersectionType(CONTACT);
+		return true;
+
+		cout << "Hit the floor";
+	}
 
     return false;
 }

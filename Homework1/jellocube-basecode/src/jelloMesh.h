@@ -185,8 +185,8 @@ protected:
         Intersection& operator=(const Intersection& p);
         Intersection(IntersectionType type, int p, const vec3& normal, double d = 0);
 
-        int m_p;
-        vec3 m_normal;
+        int m_p; //INDEX into the particle list
+        vec3 m_normal; 
         double m_distance;
         IntersectionType m_type;
     };
