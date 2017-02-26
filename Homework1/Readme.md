@@ -12,6 +12,8 @@ The assignment is due: Monday, February 27 at 11:59PM (EST)
 | ![](images/undeformed3.png?raw=true)  | ![](images/deformed3.png?raw=true) |
 
 
+Please look at Excel spreadsheet [Part_1_HW_1](Part_1_HW_1.xlsx)
+
 ##Part 1:
 ####A & B:
 (equation placed in Wolfram Alpha)
@@ -30,14 +32,14 @@ Exact form: y(x)=2.71828^(0.5 x) sin(5 x)
 
 **************look between here**********
 
-|![](images/Part1cgraph.png?/raw=true)  | ![](images/Part1cgraph.png?/raw=true) |
+|![](images/Part1cgraph.png?/raw=true)  |
 
 ******
 
 ####D: graph named part 1 d graph
 
 ******
-|![](images/Part1dgraph.png?/raw=true)  | ![](images/Part1dgraph.png?/raw=true) |
+|![](images/Part1dgraph.png?/raw=true)  | 
 
 *****
 
@@ -45,11 +47,11 @@ Exact form: y(x)=2.71828^(0.5 x) sin(5 x)
 
 *****
 
-|![](images/Part1egraphRK4Results.png?/raw=true)  | ![](images/Part1egraphRK4Results.png?/raw=true) |
+|![](images/Part1egraphRK4Results.png?/raw=true)  | 
 
 ******
 
-|![](images/Part1egraphRK4PercentError.png?/raw=true)  | ![](images/Part1egraphRK4PercentError.png?/raw=true) |
+|![](images/Part1egraphRK4PercentError.png?/raw=true)  |
 
 *****
 
@@ -70,8 +72,10 @@ In other words, Euler method is the least accurate for integrating the equation.
 *****
 
 ###Part2:
-Part 2 of this assignment, I received assistance from students in our class.  Outside help included Dr. P. Weigand at UCF 
+Part 2 of this assignment, I received assistance from students in our class.  
+Outside help included Dr. P. Weigand at UCF 
 H.Carr-computer engineer
+~~~
 msdn.com to understand C++ commands
 http://beginnerscpp.com/ for online tutorials
 
