@@ -38,12 +38,9 @@ Exact form: y(x)=2.71828^(0.5 x) sin(5 x)
 ******
 
 ####D: graph named part 1 d graph
-
 ******
 |![](images/Part1dgraph.png?/raw=true)  | 
-
 *****
-
 ####E: graph named part 1 e graph RK4 Results and part 1 e graph RK4 Percent Error
 
 *****
