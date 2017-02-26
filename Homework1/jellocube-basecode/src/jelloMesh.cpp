@@ -529,147 +529,145 @@ bool JelloMesh::FloorIntersection(Particle& p, Intersection& intersection)
     return false;
 }
 
-//bool JelloMesh::CylinderIntersection(Particle& p, World::Cylinder* cylinder,
-//		JelloMesh::Intersection& result)
-//	{
-//		
-//		vec3 cylinderStart = cylinder->start;
-//		vec3 cylinderEnd = cylinder->end;
-//		vec3 cylinderAxis = cylinderEnd - cylinderStart;
-//		double cylinderRadius = cylinder->r; 
-//
-//		  //TODO
-//			return false;
-//	}
-//		
+bool JelloMesh::CylinderIntersection(Particle& p, World::Cylinder* cylinder,
+		JelloMesh::Intersection& result)
+	{
+		
+		vec3 cylinderStart = cylinder->start;
+		vec3 cylinderEnd = cylinder->end;
+		vec3 cylinderAxis = cylinderEnd - cylinderStart;
+		double cylinderRadius = cylinder->r; 
 
-//void JelloMesh::EulerIntegrate(double dt)
+		  //TODO
+			return false;
+	}
+		
+
+void JelloMesh::EulerIntegrate(double dt) //y=yi + h(fx)  
 {
-    // TODO
+     TODO
 
-//    double halfdt = 0.5 * dt;
-//    ParticleGrid target = m_vparticles;  // target is a copy!
-//    ParticleGrid& source = m_vparticles;  // source is a ptr!
-//	
-//    // Step 1
-//    ParticleGrid accum1 = m_vparticles;
-//    for (int i = 0; i < m_rows+1; i++)
-//    {
-//		for (int j = 0; j < m_cols + 1; j++)
-//		{
-//			for (int k = 0; k < m_stacks + 1; k++)
-//			{
-//				Particle& s = GetParticle(source, i, j, k);
-//				Particle& p = GetParticle(m_vparticles, i, j, k);
-//		
-//				Particle& k1 = GetParticle(accum1, i, j, k);
-//				k1.force = halfdt * s.force * 1 / s.mass;
-//				k1.velocity = halfdt * s.velocity;
-//
-//				Particle& t = GetParticle(target, i, j, k);
-//				t.velocity = s.velocity + k1.force;
-//				t.position = s.position + k1.velocity;
-//			}
-//			
-//			// Put it all together
-//			double asixth = 1 / 6.0;
-//			double athird = 1 / 3.0;
-//		}
-//    for (int i = 0; i < m_rows+1; i++)
-//    {
-//        for (int j = 0; j < m_cols+1; j++)
-//        {
-//            for (int k = 0; k < m_stacks+1; k++)
-//            {
-//                Particle& p = GetParticle(m_vparticles, i,j,k);
-//                Particle& k1 = GetParticle(accum1, i,j,k);
-//              
-//                               
-//				p.velocity = p.velocity + asixth * k1.force; 
-//                    
-//
-//				p.position = p.position + asixth * k1.velocity;
-//                    
-//            }
-//        }
-//    }
+    double halfdt = 0.5 * dt;
+    ParticleGrid target = m_vparticles;  // target is a copy!
+    ParticleGrid& source = m_vparticles;  // source is a ptr!
+	
+    // Step 1
+    ParticleGrid accum1 = m_vparticles;
+    for (int i = 0; i < m_rows+1; i++)
+    {
+		for (int j = 0; j < m_cols + 1; j++)
+		{
+			for (int k = 0; k < m_stacks + 1; k++)
+			{
+				Particle& s = GetParticle(source, i, j, k);
+				Particle& p = GetParticle(m_vparticles, i, j, k);
+		
+				Particle& k1 = GetParticle(accum1, i, j, k);
+				k1.force = halfdt * s.force * 1 / s.mass;
+				k1.velocity = halfdt * s.velocity;
+
+				Particle& t = GetParticle(target, i, j, k);
+				t.velocity = s.velocity + k1.force;
+				t.position = s.position + k1.velocity;
+			}
+			
+			// Put it all together
+			double asixth = 1 / 6.0;
+			double athird = 1 / 3.0;
+		}
+    for (int i = 0; i < m_rows+1; i++)
+    {
+        for (int j = 0; j < m_cols+1; j++)
+        {
+            for (int k = 0; k < m_stacks+1; k++)
+            {
+                Particle& p = GetParticle(m_vparticles, i,j,k);
+                Particle& k1 = GetParticle(accum1, i,j,k);              
+                               
+				p.velocity = p.velocity + asixth * k1.force;                     
+
+				p.position = p.position + asixth * k1.velocity;
+                    
+            }
+        }
+    }
 }
 
-//void JelloMesh::MidPointIntegrate(double dt)
-//{
-    // TODO	
-	//{
-	//	double halfdt = 0.5 * dt;
-	//	ParticleGrid target = m_vparticles;  // target is a copy!
-	//	ParticleGrid& source = m_vparticles;  // source is a ptr!
+void JelloMesh::MidPointIntegrate(double dt)
+{
+     TODO	
+	{
+		double halfdt = 0.5 * dt;
+		ParticleGrid target = m_vparticles;  // target is a copy!
+		ParticleGrid& source = m_vparticles;  // source is a ptr!
 
-	//  // Step 1
-	//	ParticleGrid accum1 = m_vparticles;
-	//	for (int i = 0; i < m_rows + 1; i++)
-	//	{
-	//		for (int j = 0; j < m_cols + 1; j++)
-	//		{
-	//			for (int k = 0; k < m_stacks + 1; k++)
-	//			{
-	//				Particle& s = GetParticle(source, i, j, k);
-	//				
-	//				Particle& k1 = GetParticle(accum1, i, j, k);
-	//				k1.force = halfdt * s.force * 1 / s.mass;
-	//				k1.velocity = halfdt * s.velocity;
+	  // Step 1
+		ParticleGrid accum1 = m_vparticles;
+		for (int i = 0; i < m_rows + 1; i++)
+		{
+			for (int j = 0; j < m_cols + 1; j++)
+			{
+				for (int k = 0; k < m_stacks + 1; k++)
+				{
+					Particle& s = GetParticle(source, i, j, k);
+					
+					Particle& k1 = GetParticle(accum1, i, j, k);
+					k1.force = halfdt * s.force * 1 / s.mass;
+					k1.velocity = halfdt * s.velocity;
 
-	//				Particle& t = GetParticle(target, i, j, k);
-	//				t.velocity = s.velocity + k1.force;
-	//				t.position = s.position + k1.velocity;
-	//			}
-	//		}
-	//	}
+					Particle& t = GetParticle(target, i, j, k);
+					t.velocity = s.velocity + k1.force;
+					t.position = s.position + k1.velocity;
+				}
+			}
+		}
 
-	//	ComputeForces(target);
+		ComputeForces(target);
 
-	//	// Step 2
-	//	ParticleGrid accum2 = m_vparticles;
-	//	for (int i = 0; i < m_rows + 1; i++)
-	//	{
-	//		for (int j = 0; j < m_cols + 1; j++)
-	//		{
-	//			for (int k = 0; k < m_stacks + 1; k++)
-	//			{
-	//				Particle& t = GetParticle(target, i, j, k);
-	//				Particle& k2 = GetParticle(accum2, i, j, k);
+		// Step 2
+		ParticleGrid accum2 = m_vparticles;
+		for (int i = 0; i < m_rows + 1; i++)
+		{
+			for (int j = 0; j < m_cols + 1; j++)
+			{
+				for (int k = 0; k < m_stacks + 1; k++)
+				{
+					Particle& t = GetParticle(target, i, j, k);
+					Particle& k2 = GetParticle(accum2, i, j, k);
 
-	//				k2.force = halfdt * t.force * 1 / t.mass;
-	//				k2.velocity = halfdt * t.velocity;
+					k2.force = halfdt * t.force * 1 / t.mass;
+					k2.velocity = halfdt * t.velocity;
 
-	//				Particle& s = GetParticle(source, i, j, k);
-	//				t.velocity = s.velocity + k2.force;
-	//				t.position = s.position + k2.velocity;
-	//			}
-	//		}
-	//	}
+					Particle& s = GetParticle(source, i, j, k);
+					t.velocity = s.velocity + k2.force;
+					t.position = s.position + k2.velocity;
+				}
+			}
+		}
 
-	//	// Put it all together
-	//	double asixth = 1 / 6.0;
-	//	double athird = 1 / 3.0;
-	//	for (int i = 0; i < m_rows + 1; i++)
-	//	{
-	//		for (int j = 0; j < m_cols + 1; j++)
-	//		{
-	//			for (int k = 0; k < m_stacks + 1; k++)
-	//			{
-	//				Particle& p = GetParticle(m_vparticles, i, j, k);
-	//				Particle& k1 = GetParticle(accum1, i, j, k);
-	//				Particle& k2 = GetParticle(accum2, i, j, k);
-	//				
+		// Put it all together
+		double asixth = 1 / 6.0;
+		double athird = 1 / 3.0;
+		for (int i = 0; i < m_rows + 1; i++)
+		{
+			for (int j = 0; j < m_cols + 1; j++)
+			{
+				for (int k = 0; k < m_stacks + 1; k++)
+				{
+					Particle& p = GetParticle(m_vparticles, i, j, k);
+					Particle& k1 = GetParticle(accum1, i, j, k);
+					Particle& k2 = GetParticle(accum2, i, j, k);
+					
 
-	//				p.velocity = p.velocity + asixth * k1.force +
-	//					athird * k2.force;
+					p.velocity = p.velocity + asixth * k1.force +
+						athird * k2.force;
 
-	//				p.position = p.position + asixth * k1.velocity +
-	//					athird * k2.velocity;
-	//			}
-	//		}
-	//	}
-	//}
+					p.position = p.position + asixth * k1.velocity +
+						athird * k2.velocity;
+				}
+			}
+		}
+	}
 }
 
 
