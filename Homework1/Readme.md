@@ -78,7 +78,7 @@ msdn.com to understand C++ commands
 http://beginnerscpp.com/ for online tutorials
 
 ****
-Unable to push my stuff to git hub
+Unable to push my stuff to git hub wrote lines that I changed
 ~~~
 
 Line 5-15
