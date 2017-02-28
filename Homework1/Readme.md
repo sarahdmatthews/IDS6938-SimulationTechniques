@@ -76,263 +76,45 @@ H.Carr-computer engineer
 msdn.com to understand C++ commands
 http://beginnerscpp.com/ for online tutorials
 
-****
-Unable to push my stuff to git hub wrote lines that I changed
-~~~
 
-Line 5-15
-
-double JelloMesh::g_structuralKs = 5000.0; 
-double JelloMesh::g_structuralKd = 5.0; 
-double JelloMesh::g_attachmentKs = 1000.0;
-double JelloMesh::g_attachmentKd = 5.0;
-double JelloMesh::g_shearKs = 3000.0;
-double JelloMesh::g_shearKd = 6.0;
-double JelloMesh::g_bendKs = 3000.0;
-double JelloMesh::g_bendKd = 5.0;
-double JelloMesh::g_penaltyKs = 1000.0;
-double JelloMesh::g_penaltyKd =200.0;
-
-****
-Line 201-209
-//Extra Springs area-Bend Springs entered by HTC  add 1 to each of the values for the Springs
-				if (j < m_cols - 1) AddBendSpring(GetParticle(g, i, j, k), GetParticle(g, i, j + 2, k));
-				if (i < m_rows - 1) AddBendSpring(GetParticle(g, i, j, k), GetParticle(g, i + 2, j, k));
-				if (k < m_stacks - 1) AddBendSpring(GetParticle(g, i, j, k), GetParticle(g, i, j, k + 2));
-
-				//Extra Springs area-Shear Springs
-				if (j < m_cols - 2) AddShearSpring(GetParticle(g, i, j, k), GetParticle(g, i, j + 3, k));
-				if (i < m_rows - 2) AddShearSpring(GetParticle(g, i, j, k), GetParticle(g, i + 3, j, k));
-				if (k < m_stacks - 2) AddShearSpring(GetParticle(g, i, j, k), GetParticle(g, i, j, k + 3));
-
-****
-
-428-459
-  Spring& spring = m_vsprings[i];//lookup the i^th spring
-        Particle& a = GetParticle(grid, spring.m_p1);//lookup the particle at one end of spring
-        Particle& b = GetParticle(grid, spring.m_p2);//lookup the particle at the other end
-		vec3 diff = a.position - b.position;
-		double dist = diff.Length();
-		 // TODO  Hooks Law and Damping  Sum of the force 
-		
-		//vec3 force_new = -spring.m_Ks* (a.position - b.position) - spring.m_restLen)* ((b.position - a.position / sqrt((a.position - b.position)*(a.position - b.position)); //elastic force of the spring
-		vec3 force_new = -(spring.m_Ks * (dist - spring.m_restLen) + spring.m_Kd * (((b.velocity-a.velocity)* diff) /dist)) * (diff/dist);
-		a.force = a.force+  force_new;   // a.force += force_new;
-		b.force += -force_new;
-		  } //Sum of Forces Ftotal=Felastic + Fdamping
-****
-461-492
-void JelloMesh::ResolveContacts(ParticleGrid& grid)
-{
-    for (unsigned int i = 0; i < m_vcontacts.size(); i++)
-    {
-       const Intersection& contact = m_vcontacts[i];
-       Particle& p = GetParticle(grid, contact.m_p);
-       vec3 normal = contact.m_normal;
-	   float dist = contact.m_distance;
-	   double r = 0.5;	
-	   p.velocity *= -1;
-	   vec3 V = p.velocity;
-
-		   // TODO v'=v-2(v dot N) (Nr)  //F=ma  a=distance veclocity/time
-		    p.position = p.position + (dist*normal);
-			p.force = dist*normal;  
-			p.velocity =  (p.velocity) - (2*V*normal*(r * normal));	
-    }
-}
-void JelloMesh::ResolveCollisions(ParticleGrid& grid)
-{
-    for(unsigned int i = 0; i < m_vcollisions.size(); i++)
-    {
-        Intersection result = m_vcollisions[i];
-        Particle& pt = GetParticle(grid, result.m_p);
-        vec3 normal = result.m_normal;
-        float dist = result.m_distance;
-		float r = 10;
-
-  //      // TODO v'=v-2(v dot N) (Nr)
-		pt.velocity = pt.velocity + (-2 * ((pt.velocity*(normal))*(normal*r)));
-		pt.position = pt.position + (dist * normal);
-	}
-****
-495-523
-bool JelloMesh::FloorIntersection(Particle& p, Intersection& intersection)
-{
-
-	//p.position[1] is the contact with floor at y axis p.velocity is the velocity of the particle
-	vec3 P1= vec3(0.0, 0.0, 0.0); //floor position
-	vec3 normal = vec3(0.0, 1.0, 0.0); //normal to the floor
-	vec3 V = p.velocity;
-	double dot = (V*normal);//according to Piazza guidance
-	{
-	
-		if (p.position[1] > 0.0 || (p.position[1] < 0.0 && dot >= 0.0)) { //logical OR operator (||) returns the boolean value true if either or both operands is true and returns false otherwise
-			return false;
-		}
-	
-	if (0 <= p.position[1] && p.position[1]<=0.0) {  //&&) returns the boolean value true if both operands are true and returns false otherwise.
-		intersection.m_p = p.index;
-		intersection.m_normal = vec3(0.0, 1.0, 0.0);
-		intersection.m_distance = (0.0-p.position[1]);
-		intersection.m_type = IntersectionType(COLLISION);
-		return true;
-	
-	}
-
-	
-	if (p.position[1] < 0.0)
-	{
-		intersection.m_p = p.index;
-		intersection.m_normal = vec3(0.0, 1.0, 0.0);
-		intersection.m_distance =  (0.0-p.position[1]);
-		intersection.m_type = IntersectionType(CONTACT);
-		return true;
-
-    return false;
-}
-*****
-544-669
-void JelloMesh::EulerIntegrate(double dt) //y=yi + h(fx)  
-{
-     TODO
-
-    double halfdt = 0.5 * dt;
-    ParticleGrid target = m_vparticles;  // target is a copy!
-    ParticleGrid& source = m_vparticles;  // source is a ptr!
-	
-    // Step 1
-    ParticleGrid accum1 = m_vparticles;
-    for (int i = 0; i < m_rows+1; i++)
-    {
-		for (int j = 0; j < m_cols + 1; j++)
-		{
-			for (int k = 0; k < m_stacks + 1; k++)
-			{
-				Particle& s = GetParticle(source, i, j, k);
-				Particle& p = GetParticle(m_vparticles, i, j, k);
-		
-				Particle& k1 = GetParticle(accum1, i, j, k);
-				k1.force = halfdt * s.force * 1 / s.mass;
-				k1.velocity = halfdt * s.velocity;
-
-				Particle& t = GetParticle(target, i, j, k);
-				t.velocity = s.velocity + k1.force;
-				t.position = s.position + k1.velocity;
-			}
-			
-			// Put it all together
-			double asixth = 1 / 6.0;
-			double athird = 1 / 3.0;
-		}
-    for (int i = 0; i < m_rows+1; i++)
-    {
-        for (int j = 0; j < m_cols+1; j++)
-        {
-            for (int k = 0; k < m_stacks+1; k++)
-            {
-                Particle& p = GetParticle(m_vparticles, i,j,k);
-                Particle& k1 = GetParticle(accum1, i,j,k);              
-                               
-				p.velocity = p.velocity + asixth * k1.force;                     
-
-				p.position = p.position + asixth * k1.velocity;
-                    
-            }
-        }
-    }
-}
-
-void JelloMesh::MidPointIntegrate(double dt)
-{
-     TODO	
-	{
-		double halfdt = 0.5 * dt;
-		ParticleGrid target = m_vparticles;  // target is a copy!
-		ParticleGrid& source = m_vparticles;  // source is a ptr!
-
-	  // Step 1
-		ParticleGrid accum1 = m_vparticles;
-		for (int i = 0; i < m_rows + 1; i++)
-		{
-			for (int j = 0; j < m_cols + 1; j++)
-			{
-				for (int k = 0; k < m_stacks + 1; k++)
-				{
-					Particle& s = GetParticle(source, i, j, k);
-					
-					Particle& k1 = GetParticle(accum1, i, j, k);
-					k1.force = halfdt * s.force * 1 / s.mass;
-					k1.velocity = halfdt * s.velocity;
-
-					Particle& t = GetParticle(target, i, j, k);
-					t.velocity = s.velocity + k1.force;
-					t.position = s.position + k1.velocity;
-				}
-			}
-		}
-
-		ComputeForces(target);
-
-		// Step 2
-		ParticleGrid accum2 = m_vparticles;
-		for (int i = 0; i < m_rows + 1; i++)
-		{
-			for (int j = 0; j < m_cols + 1; j++)
-			{
-				for (int k = 0; k < m_stacks + 1; k++)
-				{
-					Particle& t = GetParticle(target, i, j, k);
-					Particle& k2 = GetParticle(accum2, i, j, k);
-
-					k2.force = halfdt * t.force * 1 / t.mass;
-					k2.velocity = halfdt * t.velocity;
-
-					Particle& s = GetParticle(source, i, j, k);
-					t.velocity = s.velocity + k2.force;
-					t.position = s.position + k2.velocity;
-				}
-			}
-		}
-
-		// Put it all together
-		double asixth = 1 / 6.0;
-		double athird = 1 / 3.0;
-		for (int i = 0; i < m_rows + 1; i++)
-		{
-			for (int j = 0; j < m_cols + 1; j++)
-			{
-				for (int k = 0; k < m_stacks + 1; k++)
-				{
-					Particle& p = GetParticle(m_vparticles, i, j, k);
-					Particle& k1 = GetParticle(accum1, i, j, k);
-					Particle& k2 = GetParticle(accum2, i, j, k);
-					
-
-					p.velocity = p.velocity + asixth * k1.force +
-						athird * k2.force;
-
-					p.position = p.position + asixth * k1.velocity +
-						athird * k2.velocity;
-				}
-			}
-		}
-	}
-}
 *********
 
 
 ##Part 3:
 #### 1. As Ks gets bigger the bouncer or less ridgid the cube becomes. Kd, the damping force will always oppose the motion.  
-Thus if you increase Ks and Kd the cube will not bounce.  Lower Kd and increase Ks for lower stiffness. 
+Thus if you increase Ks and Kd the cube will not bounce at the same time.  Lower Kd and increase Ks for lower stiffness. If no value to Kd the cube will continue to bounce.
 
-####2. 
+####2. The benefit of the collision system is it is simple to teach novice persons about the system, but the barrier is that the applicability for other systems seems limited. 
 
-####3. Systems that could model mass-spring simulations include animation, video games, fashion (modeling cloth).
+####3. Systems that could model mass-spring simulations include hair simulations, grass simulations, fur, deformed shapes, which can be applied to animation, video games, fashion (modeling cloth).
 
-####4. My jello does not behave realistically but it could if given the correct code as seen in some of the simulations online.  
+####4. My jello does not behave realistically but I believe it could if given the better paramaters as seen in some of the simulations online.  Realistically, if a jello cube hit a cylinder it would have 
+cut through the cube (I am thinking jello jigglers, this is what is used in the jello molds to give stiffer jello).
 
 The integration method utilized in my homework was RK4.
 
-####5. Simulating water. 
+####5. Simulating water would be complex, taking formless matter (liquid) and putting it into a form in order to simulate it.  Fluids can be static or dynamic and would involve the physics of fluid dynamics.
+Fluid dynamics would include things like flow rate, bernoulli's equation, viscosity, surface tension and adhesion and venturi effects.  But would also include gravity and the use of Pascal's Principles. 
+Also, it may include bouyancy and thus Archimedes Principles would need to be applied.  Because fluids take the shape of the container it is in, the number of particles that would be used would be significantly
+greater than that used in the cube (bound matter).
+
+~~~
+###Part 4:
+Results of Cube:
+Spring Constants:  For Ks values ranged from 1000-5000.  Kd values were less than 10.  The Ks had to be set high to see any change in the cube.  Too high and the cube bounced off or blew up.
+
+g_structuralKs = 3000.0
+g_structuralKd = 5.0
+g_attachmentKs = 1000.0
+g_attachmentKd = 5.0
+g_shearKs = 3000.0;
+g_shearKd = 6.0;
+g_bendKs = 5000.0;
+g_bendKd = 5.0;
+g_penaltyKs = 1000.0;
+g_penaltyKd =200.0;
+
+I used Rk4 integration because the cube looked cleaner.  When I used midpoint, the cube was suspended and did not bounce.  Euler integration bounced and then the
+cube disappeared into the ground and then pulsated and came back up.  It was messy.  
 
 

@@ -1,7 +1,3 @@
 ﻿  jelloMesh.cpp
 C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(265): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
-C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(534): error C2601: 'JelloMesh::CylinderIntersection': local function definitions are illegal
-  C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(505): note: this line contains a '{' which has not yet been matched
-C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(547): error C2601: 'JelloMesh::EulerIntegrate': local function definitions are illegal
-  C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(505): note: this line contains a '{' which has not yet been matched
-C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\src\jelloMesh.cpp(547): fatal error C1075: the left brace '{' was unmatched at the end of the file
+  jello.vcxproj -> C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework1\jellocube-basecode\build\Debug\jello.exe
