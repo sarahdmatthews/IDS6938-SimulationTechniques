@@ -72,7 +72,8 @@ In other words, Euler method is the least accurate for integrating the equation.
 Part 2 of this assignment, I received assistance from students in our class.  
 Outside help included Dr. P. Weigand at UCF 
 H.Carr-computer engineer
-~~~
+###
+Resources Used
 msdn.com to understand C++ commands
 http://beginnerscpp.com/ for online tutorials
 
@@ -82,26 +83,35 @@ http://beginnerscpp.com/ for online tutorials
 
 ##Part 3:
 #### 1. As Ks gets bigger the bouncer or less ridgid the cube becomes. Kd, the damping force will always oppose the motion.  
-Thus if you increase Ks and Kd the cube will not bounce at the same time.  Lower Kd and increase Ks for lower stiffness. If no value to Kd the cube will continue to bounce.
+Thus if you increase Ks and Kd the cube will not bounce at the same time.  Lower Kd and increase Ks for lower stiffness. 
+If no value to Kd the cube will continue to bounce.
+*****
 
-####2. The benefit of the collision system is it is simple to teach novice persons about the system, but the barrier is that the applicability for other systems seems limited. 
-
-####3. Systems that could model mass-spring simulations include hair simulations, grass simulations, fur, deformed shapes, which can be applied to animation, video games, fashion (modeling cloth).
-
-####4. My jello does not behave realistically but I believe it could if given the better paramaters as seen in some of the simulations online.  Realistically, if a jello cube hit a cylinder it would have 
+####2. The benefit of the collision system is it is simple to teach novice persons about the system, but the barrier is that the 
+applicability for other systems seems limited. 
+*****
+####3. Systems that could model mass-spring simulations include hair simulations, grass simulations, fur, deformed shapes, 
+which can be applied to animation, video games, fashion (modeling cloth).
+*****
+####4. My jello does not behave realistically but I believe it could if given the better paramaters as seen in some of the simulations online.  
+Realistically, if a jello cube hit a cylinder it would have 
 cut through the cube (I am thinking jello jigglers, this is what is used in the jello molds to give stiffer jello).
-
+*****
 The integration method utilized in my homework was RK4.
-
-####5. Simulating water would be complex, taking formless matter (liquid) and putting it into a form in order to simulate it.  Fluids can be static or dynamic and would involve the physics of fluid dynamics.
-Fluid dynamics would include things like flow rate, bernoulli's equation, viscosity, surface tension and adhesion and venturi effects.  But would also include gravity and the use of Pascal's Principles. 
-Also, it may include bouyancy and thus Archimedes Principles would need to be applied.  Because fluids take the shape of the container it is in, the number of particles that would be used would be significantly
+*****
+####5. Simulating water would be complex, taking formless matter (liquid) and putting it into a form in order to simulate it.  
+Fluids can be static or dynamic and would involve the physics of fluid dynamics.
+Fluid dynamics would include things like flow rate, bernoulli's equation, viscosity, surface tension and adhesion and venturi effects.  
+But would also include gravity and the use of Pascal's Principles. 
+Also, it may include bouyancy and thus Archimedes Principles would need to be applied.  
+Because fluids take the shape of the container it is in, the number of particles that would be used would be significantly
 greater than that used in the cube (bound matter).
 
 ~~~
 ###Part 4:
 Results of Cube:
-Spring Constants:  For Ks values ranged from 1000-5000.  Kd values were less than 10.  The Ks had to be set high to see any change in the cube.  Too high and the cube bounced off or blew up.
+Spring Constants:  For Ks values ranged from 1000-5000.  Kd values were less than 10.  
+The Ks had to be set high to see any change in the cube.  Too high and the cube bounced off or blew up.
 
 g_structuralKs = 3000.0
 g_structuralKd = 5.0
