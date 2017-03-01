@@ -20,14 +20,20 @@ Exact form: y(x)=2.71828^(0.5 x) sin(5 x)
 df: y - (1.0/2.0) * exp(x/2.0) * sin(5.0 * x) + 5.0 * exp(x/2.0) * cos (5.0 * x)
 ~~~
 y(x) = exp (x/2.0)* sin (5.0 * x)
+~~~
 ***
 
 ####C: graph named part 1 c graph 
 
-| RK1, RK2 and RK4  |  RK1, RK2 and RK4 Table |
-| ------------- | ------------- |
+| RK1, RK2 and RK4  |  
+| ------------- | 
 
-|![](images/Part1cgraph.png?/raw=true)  | ![](images/Part1ctable.png?/raw=true) 
+|![](images/Part1cgraph.png?/raw=true)  
+~~~
+
+|RK1, RK2 and RK4 Table |
+| ------------- | 
+| ![](images/Part1ctable.png?/raw=true) 
 
 ******
 ####D: graph named part 1 d graph
@@ -35,19 +41,32 @@ y(x) = exp (x/2.0)* sin (5.0 * x)
 | RK1, RK2 and RK4 Percent Error  | Percent Error  Table |
 | ------------- | ------------- |
 
-|![](images/Part1dgraph.png?/raw=true)  | ![](images/Part1dtable.png?/raw=true) 
+|![](images/Part1dgraph.png?/raw=true)  
+
+*****
+| Percent Error  Table |
+| ------------- 
+| ![](images/Part1dtable.png?/raw=true) 
+
 *****
 ####E: graph named part 1 e graph RK4 Results and part 1 e graph RK4 Percent Error
 *****
 | RK4 Vary Stepsize  | RK4 Vary Stepsize Percent Error |
 | ------------- | ------------- |
 
-|![](images/Part1egraphRK4Results.png?/raw=true)  |![](images/Part1egraphRK4PercentError.png?/raw=true)  |
+|![](images/Part1egraphRK4Results.png?/raw=true) 
+*****
+ 
+| RK4 Vary Stepsize Percent Error |
+| ------------- | 
+|![](images/Part1egraphRK4PercentError.png?/raw=true)  |
 *****
 |![](images/Part1etable.png?/raw=true) 
 ~~~
 *****
-####F: In theory varying the integration methods towards higher order introduces more accuracy and less error. 
+####F: 
+*****
+In theory varying the integration methods towards higher order introduces more accuracy and less error. 
 
 This is a trend that is illustrated in the differential equation given in this exercise as shown in the graphs for part c and d of the assignment.  
 
@@ -64,6 +83,7 @@ In other words, Euler method is the least accurate for integrating the equation.
 *****
 
 ##Part2:
+~~~
 Part 2 of this assignment, I received assistance from students in our class.  
 Outside help included Dr. P. Weigand at UCF 
 H.Carr-computer engineer
@@ -71,8 +91,8 @@ H.Carr-computer engineer
 Resources Used
 msdn.com to understand C++ commands
 http://beginnerscpp.com/ for online tutorials
-
-*********
+~~~~
+*****
 ##Part 3:
 #### 1. As Ks gets bigger the bouncer or less ridgid the cube becomes. Kd, the damping force will always oppose the motion.  
 Thus if you increase Ks and Kd the cube will not bounce at the same time.  Lower Kd and increase Ks for lower stiffness. 
@@ -99,6 +119,7 @@ Static fluids would also include gravity and the use of Pascal's Principles, bou
 Because fluids take the shape of the container it is in, the number of particles that would be used would be significantly
 greater than that used in the cube (bound matter).
 
+*****
 ~~~
 ##Part 4:
 Results of Cube:
@@ -119,6 +140,7 @@ g_penaltyKd =200.0;
 I used Rk4 integration because the cube looked cleaner.  When I used midpoint, the cube was suspended and did not bounce.  Euler integration bounced and then the
 cube disappeared into the ground and then pulsated and came back up.  It was messy. 
 
+*****
 ~~~~
 ##Images of Jello Cube:
  
