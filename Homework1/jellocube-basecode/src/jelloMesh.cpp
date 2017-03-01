@@ -11,7 +11,7 @@ double JelloMesh::g_shearKs = 3000.0;
 double JelloMesh::g_shearKd = 6.0;
 double JelloMesh::g_bendKs = 5000.0;
 double JelloMesh::g_bendKd = 5.0;
-double JelloMesh::g_penaltyKs = 1000.0;
+double JelloMesh::g_penaltyKs = 10000.0;
 double JelloMesh::g_penaltyKd =200.0;
 
 
@@ -204,9 +204,12 @@ void JelloMesh::InitJelloMesh()
 				if (k < m_stacks - 1) AddBendSpring(GetParticle(g, i, j, k), GetParticle(g, i, j, k + 2));
 
 				//Extra Springs area-Shear Springs
-				if (j < m_cols - 2) AddShearSpring(GetParticle(g, i, j, k), GetParticle(g, i, j + 3, k));
-				if (i < m_rows - 2) AddShearSpring(GetParticle(g, i, j, k), GetParticle(g, i + 3, j, k));
-				if (k < m_stacks - 2) AddShearSpring(GetParticle(g, i, j, k), GetParticle(g, i, j, k + 3));
+				if (i < m_rows && j < m_cols) AddShearSpring(GetParticle(g, i, j, k), GetParticle(g, i+1, j+1, k));
+				if (i < m_rows&& j > 0) AddShearSpring(GetParticle(g, i, j, k), GetParticle(g, i + 1, j-1, k));
+				if (i > 0 && k < m_stacks) AddShearSpring(GetParticle(g, i, j, k), GetParticle(g, i -1, j, k+1));
+				if (j < m_cols && k < m_stacks) AddShearSpring(GetParticle(g, i, j, k), GetParticle(g, i, j + 1, k +1));
+				if (i < m_rows && k < m_stacks) AddShearSpring(GetParticle(g, i, j, k), GetParticle(g, i +1, j, k + 1));
+				if (j > 0 && k < m_stacks) AddShearSpring(GetParticle(g, i, j, k), GetParticle(g, i, j -1, k + 1));
             }
         }
     }
@@ -534,13 +537,36 @@ bool JelloMesh::FloorIntersection(Particle& p, Intersection& intersection)
 bool JelloMesh::CylinderIntersection(Particle& p, World::Cylinder* cylinder,
 	JelloMesh::Intersection& result)
 {
-	vec3 cylinderStart = cylinder->start;
-	vec3 cylinderEnd = cylinder->end;
-	vec3 cylinderAxis = cylinderEnd - cylinderStart;
-	double cylinderRadius = cylinder->r;
+	//vec3 cylinderStart = cylinder->start;
+	//vec3 cylinderEnd = cylinder->end;
+	//vec3 cylinderAxis = cylinderEnd - cylinderStart;
+	//double cylinderRadius = cylinder->r;
+	//vec3 point = cylinderStart + cylinder->r*cylinderAxis;
+	//vec3 normal = p.position - point;
 
-	//TODO
+	//////TODO
+	////
+	//double dist = normal.Length();
+	//normal = normal.Normalize();
 
+	//if (dist < cylinderRadius + 0.5)
+	//{
+	//	result.m_p = p.index;
+	//	result.m_distance = cylinderRadius;
+	//	result.m_type = IntersectionType::COLLISION;
+	//	result.m_normal = normal;
+	//	return true;
+	////	
+	//}
+
+	//	else if (dist <cylinderRadius + 0.2) {
+
+	//	result.m_p = p.index;
+	//	result.m_distance = cylinderRadius;
+	//	result.m_type = IntersectionType::CONTACT;
+	//	result.m_normal = normal;
+	//	return true;
+	//}
 	return false;
 }
 		
