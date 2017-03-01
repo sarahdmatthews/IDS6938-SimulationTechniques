@@ -20,7 +20,7 @@ Exact form: y(x)=2.71828^(0.5 x) sin(5 x)
 df: y - (1.0/2.0) * exp(x/2.0) * sin(5.0 * x) + 5.0 * exp(x/2.0) * cos (5.0 * x)
 ~~~
 y(x) = exp (x/2.0)* sin (5.0 * x)
-~~~
+
 *****
 ####C: graph named part 1 c graph
 ***** 
@@ -28,8 +28,8 @@ y(x) = exp (x/2.0)* sin (5.0 * x)
 | RK1, RK2 and RK4  |  
 | ------------- | 
 
-|![](images/Part1cgraph.png?/raw=true)  
-~~~
+| ![](images/Part1cgraph.png?/raw=true)  
+
 
 |RK1, RK2 and RK4 Table |
 | ------------- | 
@@ -64,7 +64,7 @@ y(x) = exp (x/2.0)* sin (5.0 * x)
 |![](images/Part1etable.png?/raw=true) 
 
 *****
-####F: 
+####F: Analyze the Results
 *****
 In theory varying the integration methods towards higher order introduces more accuracy and less error. 
 
@@ -92,9 +92,10 @@ msdn.com to understand C++ commands
 http://beginnerscpp.com/ for online tutorials
 ~~~~
 
+
 *****
 ##Part 3:
-*****
+
 1. As Ks gets bigger the bouncer or less ridgid the cube becomes. Kd, the damping force will always oppose the motion.  
 Thus if you increase Ks and Kd the cube will not bounce at the same time.  Lower Kd and increase Ks for lower stiffness. 
 If no value to Kd the cube will continue to bounce.
@@ -119,8 +120,9 @@ Fluid dynamics would include things like flow rate, bernoulli's equation, viscos
 Static fluids would also include gravity and the use of Pascal's Principles, bouyancy and thus Archimedes Principles would need to be applied.  
 Because fluids take the shape of the container it is in, the number of particles that would be used would be significantly
 greater than that used in the cube (bound matter).
-*****
 ~~~
+
+*****
 ##Part 4:
 Results of Cube:
 Spring Constants:  For Ks values ranged from 1000-5000.  Kd values were less than 10.  
@@ -139,16 +141,16 @@ g_penaltyKd =200.0;
 
 I used Rk4 integration because the cube looked cleaner.  When I used midpoint, the cube was suspended and did not bounce.  Euler integration bounced and then the
 cube disappeared into the ground and then pulsated and came back up.  It was messy. 
+~~~~
 
 *****
-~~~~
 ##Images of Jello Cube:
  
 
 | Jello Cube Image Falls  | Jello Cube Intersect Cylinder|
 | ------------- | ------------- |
 
-|![](images/0001.png?/raw=true)  | ![](images/00023.png?/raw=true) 
+|![](images/0001.png?/raw=true)  | ![](images/0023.png?/raw=true) 
 *****
 
 | Jello Cube Ground   | 
