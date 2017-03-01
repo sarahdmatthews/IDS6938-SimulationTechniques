@@ -21,7 +21,7 @@ df: y - (1.0/2.0) * exp(x/2.0) * sin(5.0 * x) + 5.0 * exp(x/2.0) * cos (5.0 * x)
 ~~~
 y(x) = exp (x/2.0)* sin (5.0 * x)
 ~~~
-***
+*****
 
 ####C: graph named part 1 c graph 
 
@@ -35,11 +35,11 @@ y(x) = exp (x/2.0)* sin (5.0 * x)
 | ------------- | 
 | ![](images/Part1ctable.png?/raw=true) 
 
-******
+*****
 ####D: graph named part 1 d graph
-******
-| RK1, RK2 and RK4 Percent Error  | Percent Error  Table |
-| ------------- | ------------- |
+*****
+| RK1, RK2 and RK4 Percent Error  |
+| ------------- | 
 
 |![](images/Part1dgraph.png?/raw=true)  
 
@@ -62,7 +62,7 @@ y(x) = exp (x/2.0)* sin (5.0 * x)
 |![](images/Part1egraphRK4PercentError.png?/raw=true)  |
 *****
 |![](images/Part1etable.png?/raw=true) 
-~~~
+
 *****
 ####F: 
 *****
@@ -83,7 +83,6 @@ In other words, Euler method is the least accurate for integrating the equation.
 *****
 
 ##Part2:
-~~~
 Part 2 of this assignment, I received assistance from students in our class.  
 Outside help included Dr. P. Weigand at UCF 
 H.Carr-computer engineer
@@ -92,6 +91,7 @@ Resources Used
 msdn.com to understand C++ commands
 http://beginnerscpp.com/ for online tutorials
 ~~~~
+
 *****
 ##Part 3:
 #### 1. As Ks gets bigger the bouncer or less ridgid the cube becomes. Kd, the damping force will always oppose the motion.  
