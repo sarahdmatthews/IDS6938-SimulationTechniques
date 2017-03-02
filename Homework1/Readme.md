@@ -96,23 +96,30 @@ http://beginnerscpp.com/ for online tutorials
 *****
 ##Part 3:
 
-1. As Ks gets bigger the bouncer or less ridgid the cube becomes. Kd, the damping force will always oppose the motion.  
-Thus if you increase Ks and Kd the cube will not bounce at the same time.  Lower Kd and increase Ks for lower stiffness. 
+1. As Ks gets bigger the bouncer or less ridgid the cube becomes. 
+Kd, the damping force will always oppose the motion.  
+Thus if you increase Ks and Kd the cube will not bounce at the same time.  
+Lower Kd and increase Ks for lower stiffness. 
 If no value to Kd the cube will continue to bounce.
+
 *****
 
-2. The benefit of the collision system is it is simple to teach novice persons about the system, and can be used model 
-something that moves continuously through time. The barrier is that the 
-applicability for other systems seems limited. Each timestep requires a numerical solution to solve.
+2. The benefit of the collision system is it is simple to teach novice persons about the system, 
+and can be used model something that moves continuously through time. 
+The barrier is that the applicability for other systems seems limited. 
+Each timestep requires a numerical solution to solve.
+
 *****
-3. Systems that could model mass-spring simulations include hair simulations, grass simulations, fur, deformed shapes, 
-which can be applied to animation, video games, fashion (modeling cloth).
+3. Systems that could model mass-spring simulations include hair simulations, grass simulations, 
+fur, deformed shapes,which can be applied to animation, video games, fashion (modeling cloth).
+
 *****
-4. My jello does not behave realistically but I believe it could if given the better paramaters as seen in some of the simulations online.  
-Realistically, if a jello cube hit a cylinder it would have 
-cut through the cube (I am thinking jello jigglers, this is what is used in the jello molds to give stiffer jello).
+4. My jello does not behave realistically but I believe it could if given the better paramaters 
+as seen in some of the simulations online.  Realistically, if a jello cube hit a cylinder it would 
+have cut through the cube (I am thinking jello jigglers, this is what is used in the jello molds to give stiffer jello).
 
 The integration method utilized in my homework was RK4.
+
 *****
 5. Simulating water would be complex, taking formless matter (liquid) and putting it into a form in order to simulate it.  
 Fluids can be static or dynamic and would involve the physics of fluid dynamics.
@@ -147,13 +154,18 @@ cube disappeared into the ground and then pulsated and came back up.  It was mes
 ##Images of Jello Cube:
  
 
-| Jello Cube Image Falls  | Jello Cube Intersect Cylinder|
-| ------------- | ------------- |
+| Jello Cube Image Falls  | 
+| ------------- |
 
-|![](images/0001.png?/raw=true)  | ![](images/0023.png?/raw=true) 
+|![](images/0001.png?/raw=true) 
+*****
+
+| Jello Cube Intersect Cylinder|
+| ------------- | 
+|![](images/0023.png?/raw=true) 
 *****
 
 | Jello Cube Ground   | 
 | ------------- | 
 
-|![](images/0134.png?/raw=true)  | 
+|![](images/0134.png?/raw=true) | 
