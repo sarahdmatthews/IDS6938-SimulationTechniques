@@ -1,4 +1,4 @@
-#Homework 2 :  Discrete-Event Simulation Assignment
+﻿#Homework 2 :  Discrete-Event Simulation Assignment
 
 ## IDS6938-Simulation Techniques - [University of Central Florida](http://www.ist.ucf.edu/grad/)
 
@@ -7,8 +7,7 @@ This is the framework for homework #2.
 
 The assignment is due: **Tuesday, March 28 at 11:59PM (EST)**
 
-asdfasdf
-sadfsad
+Sarah Matthews
 
 
 # Introduction
@@ -37,6 +36,26 @@ We looked at different ways to generate [pseudo-random numbers](https://en.wikip
 * **(d)- 4pts:** Generate random numbers in two-dimensions for a unit square. Plot the results for the different random number engines. The vertical axis should vary N in increasing order. The horizontal axis should show of the random number engines.
 * **(e)- 4pts:** Generate random numbers in two-dimensions for a unit square. Plot the results for the different distributions. The vertical axis should vary N in increasing order. The horizontal axis should show of the random number engines. (See [Random Numbers Webcourse page](https://webcourses.ucf.edu/courses/1246518/pages/random-numbers?module_item_id=10541423) for a rough idea what you should produce.)
 * **(f)- 4pts:** Repeat parts (d) and (e) with a unit circle.
+
+##Part 1 Responses:
+| Parameters and Statistics | 
+| ------------- | 
+| ![](images/Part1A1?raw=true)  | 
+
+
+| Kolmogorov-Smirnov test, Skewness and Kurtosis| 
+| ------------- | 
+| ![](images/Part1A2?raw=true)  |
+
+
+| ScatterPlots| 
+| ------------- | 
+| ![](images/Part1AScatter?raw=true)  |
+
+
+
+ 
+
 
 ##Part 2 - Snakes and Ladders (Discrete Event Markov Chains and Monte Carlo Simulations) (30 pts)
 
