@@ -3,20 +3,50 @@
 #include <numeric>  
 #include <map>
 #include "markov.h"
+#include <fstream>
+#include <map>
+#include <math.h>
+#include <vector>
+#include <random>
+#include <algorithm>
+#include <Eigen\dense>
+
+
 
 int main(){
   //SIMULATE DISCRETE TIME MARKOV CHAIN
-  std::vector< std::vector<double> > matrix(3,std::vector<double> (3)); //initializes a 3x3 matrix with zeros
-
-  //set transition matrix
-  matrix[0][1] = 1;
-  matrix[1][2] = 1;
-  matrix[2][0] = 1;
-
-  int steps = 10;
-  int start = 0;
-  double T = 8.5;
+  std::vector< std::vector<double> > matrix(101,std::vector<double> (101)); //initializes a 3x3 matrix with zeros
   
+  std::vector<int> DTMC(Eigen::MatrixXf, int, int);
+  //set transition matrix
+  /*matrix[0][1] = 1;
+  matrix[1][2] = 1;
+  matrix[2][0] = 1;*/
+
+ /* int steps = 10;
+  int start = 0;
+  double T = 8.5;*/
+  
+  {
+	  int size = 10;  //TODO
+	  Eigen::MatrixXf TransitionMatrix(101, 101);
+	  Eigen::VectorXf v(size);
+
+	  unsigned int ROLLS = 0; //TODO
+
+	  double prob = 0.0;  //TODO
+
+
+
+
+	  void SetTransitionMatrix()
+	  {
+		  TransitionMatrix.setZero();
+
+		  //TODO
+
+
+	  }
   //simulate discrete time Markov Chain
   //unsigned int N = 100000;
   //std::map<int, int> hist;
