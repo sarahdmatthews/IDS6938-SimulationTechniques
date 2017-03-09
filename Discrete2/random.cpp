@@ -57,8 +57,8 @@ int main()
 	for (auto p : hist) {
 		
 		// Uncomment if you want to see the values
-		//std::cout << std::fixed << std::setprecision(1) << std::setw(2)
-		//	<< p.first << " -  "<< p.second << std::endl;
+		std::cout << std::fixed << std::setprecision(1) << std::setw(2)
+			<< p.first << " -  "<< p.second << std::endl;
 
 		std::cout << std::fixed << std::setprecision(1) << std::setw(2)
 			<< p.first << "  " << std::string(p.second / (N/500), '*') << std::endl;
@@ -97,7 +97,8 @@ int main()
 	double stdev = std::sqrt(sq_sum / raw.size());
 	myfile << "stdev: " << stdev << std::endl;
 	std::cout << "stdev: " << stdev << std::endl;
-	
+
+
 	myfile.close();
 
 }

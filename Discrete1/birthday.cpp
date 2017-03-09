@@ -78,7 +78,7 @@ void printRealisation() {
 
 int main()
 {
-	N = 5;
+	N = 10;
 	M = 10000;
 	IntializeRandom(0.0, 365);
 	printRealisation();
