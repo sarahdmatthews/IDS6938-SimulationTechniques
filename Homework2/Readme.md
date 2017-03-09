@@ -40,17 +40,17 @@ We looked at different ways to generate [pseudo-random numbers](https://en.wikip
 ##Part 1 Responses:
 | Parameters and Statistics | 
 | ------------- | 
-| ![](images/Part1A1?raw=true)  | 
+| ![](images/Part1A1.png?raw=true)  | 
 
 
 | Kolmogorov-Smirnov test, Skewness and Kurtosis| 
 | ------------- | 
-| ![](images/Part1A2?raw=true)  |
+| ![](images/Part1A2.png?raw=true)  |
 
 
 | ScatterPlots| 
 | ------------- | 
-| ![](images/Part1AScatter?raw=true)  |
+| ![](images/Part1AScatter.png?raw=true)  |
 
 
 
