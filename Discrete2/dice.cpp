@@ -34,8 +34,9 @@ int main()
 
 
 	//  2) - Change distribution types
-	std::uniform_real_distribution<> dist(0, RAND_MAX);  // example of a uniform distribution
-
+	std::uniform_real_distribution<> dist(0, RAND_MAX);  // example of a uniform real distribution
+		
+	
 	auto generator = std::bind(dist, engine);
 
 	// 3) Play with N

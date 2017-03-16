@@ -18,10 +18,10 @@ int main()
 	std::random_device rd;
 
 	// 1) Change random number generators
-	//std::mt19937_64 engine(rd());
+	std::mt19937_64 engine(rd());
 	//std::knuth_b engine(rd());
 	//std::minstd_rand engine(rd());
-	std::ranlux48 engine(rd());
+	//std::ranlux48 engine(rd());
 
 
 	// Another seed intialization routine (this is just here for future reference for you.)
@@ -34,14 +34,18 @@ int main()
 	
 
 	//  2) - Change distribution types
-	std::uniform_real_distribution<> dist(0, 100);  // example of a uniform distribution
+	//std::uniform_real_distribution<> dist(0, 100);  // example of a uniform distribution
 	//std::normal_distribution<> dist(50,10);    // example of a normal distribution
-
+	//std::uniform_int_distribution<> dist(0, RAND_MAX);  // example of a uniform discrete
+	std::binomial_distribution<> dist(RAND_MAX);  // example of a binomial
+	//std::geometric_distribution<int> dist(RAND_MAX);  // example of a geometric distribution
+	//std::poisson_distribution<> dist(RAND_MAX);  // example of a poisson distribution
+	//std::chi_squared_distribution<> dist(RAND_MAX);  // example of a chi-squared distribution
 
 	auto generator = std::bind(dist, engine);
 
 	// 3) Play with N
-	unsigned int N = 150000;  // number of values generated
+	unsigned int N = 100000;  // number of values generated
 	double randomValue;
 	std::map<int, int> hist; //Counts of discrete values
 	std::vector<double> raw; //raw random values 

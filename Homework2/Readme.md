@@ -38,6 +38,8 @@ We looked at different ways to generate [pseudo-random numbers](https://en.wikip
 * **(f)- 4pts:** Repeat parts (d) and (e) with a unit circle.
 
 ##Part 1 Responses:
+**A
+
 | Parameters and Statistics | 
 | ------------- | 
 | ![](images/Part1A1.png?raw=true)  | 
@@ -52,6 +54,12 @@ We looked at different ways to generate [pseudo-random numbers](https://en.wikip
 | ------------- | 
 | ![](images/Part1AScatter.png?raw=true)  |
 
+
+**B
+
+| 5 Engines with Vary N Plot| 
+| ------------- | 
+| ![](images/Part1B1.png?raw=true)  |
 
 
  
