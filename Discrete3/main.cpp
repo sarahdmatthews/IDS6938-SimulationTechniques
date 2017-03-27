@@ -19,13 +19,13 @@ int main(){
   
   std::vector<int> DTMC(Eigen::MatrixXf, int, int);
   //set transition matrix
-  /*matrix[0][1] = 1;
+  matrix[0][1] = 1;
   matrix[1][2] = 1;
-  matrix[2][0] = 1;*/
+  matrix[2][0] = 1;
 
- /* int steps = 10;
+  int steps = 10;
   int start = 0;
-  double T = 8.5;*/
+  double T = 8.5;
   
   {
 	  int size = 10;  //TODO
@@ -76,3 +76,4 @@ int main(){
 
   return 0;
 }
+  

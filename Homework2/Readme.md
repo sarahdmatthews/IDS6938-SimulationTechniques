@@ -61,8 +61,23 @@ We looked at different ways to generate [pseudo-random numbers](https://en.wikip
 | ------------- | 
 | ![](images/Part1B1.png?raw=true)  |
 
-
+With N varied among the random generators the trend remains the same, the magnitude is increases and N is increased. 
+Visually one could consider the numbers seem to be nonrandom from the RNG.
  
+| 5 Engines with Vary N Statistics| 
+| ------------- | 
+| ![](images/MinimalStdVaryN.png?raw=true)  |
+| ![](images/MTStatsVaryN.png?raw=true)  |
+| ![](images/KnuthVaryN.png?raw=true)  |
+| ![](images/QuasiVaryN.png?raw=true)  |
+| ![](images/RanluxVaryN.png?raw=true)  |
+
+**C
+
+**D
+| Random Numbers in Unit Square Quasi-Random Sobol| 
+| ------------- | 
+| ![](images/QuasiRadomUnitSquare.png?raw=true)  |
 
 
 ##Part 2 - Snakes and Ladders (Discrete Event Markov Chains and Monte Carlo Simulations) (30 pts)
