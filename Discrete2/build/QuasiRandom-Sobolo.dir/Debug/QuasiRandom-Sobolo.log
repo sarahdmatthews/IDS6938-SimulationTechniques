@@ -1,0 +1,6 @@
+﻿  quasi.cpp
+C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Discrete2\quasi.cpp(49): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Discrete2\quasi.cpp(62): warning C4018: '<': signed/unsigned mismatch
+C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Discrete2\quasi.cpp(65): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Discrete2\quasi.cpp(76): warning C4244: 'argument': conversion from 'float' to 'unsigned __int64', possible loss of data
+  QuasiRandom-Sobolo.vcxproj -> C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Discrete2\build\Debug\QuasiRandom-Sobolo.exe
