@@ -1,0 +1,3 @@
+﻿  birthday.cpp
+C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Discrete1\birthday.cpp(56): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  Birthday.vcxproj -> C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Discrete1\build\Debug\Birthday.exe

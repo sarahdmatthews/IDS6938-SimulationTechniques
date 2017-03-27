@@ -36,6 +36,14 @@ int main(int argc, char* argv[])
 	   //TODO Create MM1_Queue objects to capture the airport senario.
 
 	   //************************************************************
+	   //Information from Piazza MM1 Queue
+	   MM1_Queue    MYOBJECTNAME;
+	   MYOBJECTNAME.set_file_names("01_log.txt", "01_wait.txt", "01_service.txt");
+	   MYOBJECTNAME.set_lambda(6);   // for this assignment this is set to a variable from the for loop.
+	   MYOBJECTNAME.set_mu(45);
+	   MYOBJECTNAME.autogenerate_new_arrivals(false); // to make sure there are no auto generated new arrivals add before initialize statement
+	   MYOBJECTNAME.initialize();
+	   MYOBJECTNAME.set_seed(1, rd()); // I set the first one to 1 for testing, the others you should use two random seeds (rd(), rd())
 
 
    for (; 
@@ -68,13 +76,32 @@ int main(int argc, char* argv[])
        if (cust2.get_type() == Customer::COMPLETED() || cust3.get_type() == Customer::COMPLETED() || cust4.get_type() == Customer::COMPLETED())
        {
 		   //TODO add_external_arrival(); on your final boarding MM1_Queue object
+		   MYOBJECTNAME.is_within_confidence_interval(); //check if something in the confidence interval
+														 //these are also checks
+		   !MYOBJECTNAME.is_within_error_range(0.006) ||
+			   !MYOBJECTNAME1.is_within_error_range(0.006) ||
+			   !MYOBJECTNAME2.is_within_error_range(0.006) ||
+			   !MYOBJECTNAME3.is_within_error_range(0.006)
+
+			   Customer cust = MYOBJECTNAME.process_next_event();//check for next event
+		   MYOBJECTNAME.add_external_arrival() //adding an external arrival
+
        }
    }
 
 
 
    //TODO Output statistics airport senario.
+   //printing the outputs
+   MYOBJECTNAME.get_current_time()
+	   MYOBJECTNAME.plot_results_output();
 
+   MYOBJECTNAME.output(); cout << "*********" << endl;
+   MYOBJECTNAME_0.output(); cout << "*********" << endl;
+   MYOBJECTNAME_1.output(); cout << "*********" << endl;
+   MYOBJECTNAME_2.output(); cout << "*********" << endl;
+   MYOBJECTNAME_3.output(); cout << "*********" << endl;
+   MYOBJECTNAME.plot_results_output();
 
 
    //**************************************************************************
@@ -86,33 +113,7 @@ int main(int argc, char* argv[])
    return(0);
 }
 
-//Information from Piazza MM1 Queue
-MM1_Queue    MYOBJECTNAME;
-MYOBJECTNAME.set_file_names("01_log.txt", "01_wait.txt", "01_service.txt");
-MYOBJECTNAME.set_lambda(6);   // for this assignment this is set to a variable from the for loop.
-MYOBJECTNAME.set_mu(45);
-MYOBJECTNAME.autogenerate_new_arrivals(false); // to make sure there are no auto generated new arrivals add before initialize statement
-MYOBJECTNAME.initialize();
-MYOBJECTNAME.set_seed(1, rd()); // I set the first one to 1 for testing, the others you should use two random seeds (rd(), rd())
 
 
-MYOBJECTNAME.is_within_confidence_interval(); //check if something in the confidence interval
-											  //these are also checks
-!MYOBJECTNAME.is_within_error_range(0.006) ||
-!MYOBJECTNAME1.is_within_error_range(0.006) ||
-!MYOBJECTNAME2.is_within_error_range(0.006) ||
-!MYOBJECTNAME3.is_within_error_range(0.006)
 
-Customer cust = MYOBJECTNAME.process_next_event();//check for next event
-MYOBJECTNAME.add_external_arrival() //adding an external arrival
-
-									//printing the outputs
-	MYOBJECTNAME.get_current_time()
-	MYOBJECTNAME.plot_results_output();
-
-MYOBJECTNAME.output(); cout << "*********" << endl;
-MYOBJECTNAME_0.output(); cout << "*********" << endl;
-MYOBJECTNAME_1.output(); cout << "*********" << endl;
-MYOBJECTNAME_2.output(); cout << "*********" << endl;
-MYOBJECTNAME_3.output(); cout << "*********" << endl;
-MYOBJECTNAME.plot_results_output();
+	

@@ -1,0 +1,33 @@
+﻿  Building Custom Rule C:/Users/sbull99/Desktop/IDS6938-SimulationTechniques/Homework2/queues/CMakeLists.txt
+  CMake does not need to re-run because C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework2\queues\build\CMakeFiles\generate.stamp is up-to-date.
+  main.cpp
+c:\users\sbull99\desktop\ids6938-simulationtechniques\homework2\queues\mm1_queue.h(154): warning C4129: '%': unrecognized character escape sequence
+c:\users\sbull99\desktop\ids6938-simulationtechniques\homework2\queues\mm1_queue.h(101): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework2\queues\main.cpp(82): error C2065: 'MYOBJECTNAME1': undeclared identifier
+C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework2\queues\main.cpp(82): error C2228: left of '.is_within_error_range' must have class/struct/union
+  C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework2\queues\main.cpp(82): note: type is 'unknown-type'
+C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework2\queues\main.cpp(83): error C2065: 'MYOBJECTNAME2': undeclared identifier
+C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework2\queues\main.cpp(83): error C2228: left of '.is_within_error_range' must have class/struct/union
+  C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework2\queues\main.cpp(83): note: type is 'unknown-type'
+C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework2\queues\main.cpp(84): error C2065: 'MYOBJECTNAME3': undeclared identifier
+C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework2\queues\main.cpp(84): error C2228: left of '.is_within_error_range' must have class/struct/union
+  C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework2\queues\main.cpp(84): note: type is 'unknown-type'
+C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework2\queues\main.cpp(86): error C2146: syntax error: missing ';' before identifier 'Customer'
+C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework2\queues\main.cpp(89): error C2143: syntax error: missing ';' before '}'
+C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework2\queues\main.cpp(97): error C2146: syntax error: missing ';' before identifier 'MYOBJECTNAME'
+C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework2\queues\main.cpp(100): error C2065: 'MYOBJECTNAME_0': undeclared identifier
+C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework2\queues\main.cpp(100): error C2228: left of '.output' must have class/struct/union
+  C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework2\queues\main.cpp(100): note: type is 'unknown-type'
+C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework2\queues\main.cpp(101): error C2065: 'MYOBJECTNAME_1': undeclared identifier
+C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework2\queues\main.cpp(101): error C2228: left of '.output' must have class/struct/union
+  C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework2\queues\main.cpp(101): note: type is 'unknown-type'
+C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework2\queues\main.cpp(102): error C2065: 'MYOBJECTNAME_2': undeclared identifier
+C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework2\queues\main.cpp(102): error C2228: left of '.output' must have class/struct/union
+  C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework2\queues\main.cpp(102): note: type is 'unknown-type'
+C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework2\queues\main.cpp(103): error C2065: 'MYOBJECTNAME_3': undeclared identifier
+C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework2\queues\main.cpp(103): error C2228: left of '.output' must have class/struct/union
+  C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework2\queues\main.cpp(103): note: type is 'unknown-type'
+  mm1_queue.cpp
+c:\users\sbull99\desktop\ids6938-simulationtechniques\homework2\queues\mm1_queue.h(154): warning C4129: '%': unrecognized character escape sequence
+c:\users\sbull99\desktop\ids6938-simulationtechniques\homework2\queues\mm1_queue.h(101): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+  Generating Code...

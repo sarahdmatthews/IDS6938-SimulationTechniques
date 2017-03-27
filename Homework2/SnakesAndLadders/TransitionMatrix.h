@@ -30,7 +30,7 @@ void SetTransitionMatrix()
 
 	myvector.transpose() * Matrix  //from Piazza
 
-	for (int i = 0; i < TransitionMatrix.rows - 6; i++) //from class on 3/21
+	for (int i = 0; i < TransitionMatrix.rows - 6; i++) //from class on 3/21  -6 omits last 6 rows
 	{
 		TransitionMatrix(i, i + 1) = prob;
 		TransitionMatrix(i, i + 2) = prob;
@@ -42,13 +42,13 @@ void SetTransitionMatrix()
 		
 		myvector.transpose() * Matrix
 
-		for (int j = ; j < TransitionMatrix.rows (); j++)
-		TransitionMatrix(j, i + 1) = prob;
-		TransitionMatrix(j, i + 2) = prob;
-		TransitionMatrix(j, i + 3) = prob;
-		TransitionMatrix(j, i + 4) = prob;
-		TransitionMatrix(j, i + 5) = prob;
-		TransitionMatrix(j, i + 6) = prob;
+		for (int j = 0 ; j < TransitionMatrix.rows (); j++)//all probabilities for last row is 0
+		TransitionMatrix(j, j + 1) = 0;
+		TransitionMatrix(j, j + 2) = 0;
+		TransitionMatrix(j, j + 3) = 0;
+		TransitionMatrix(j, j + 4) = 0;
+		TransitionMatrix(j, j + 5) = 0;
+		TransitionMatrix(j, j + 6) = 0;
 }
 	std::cout << TransitionMatrix << std::endl;
 	exit(1); //class notes 3/21

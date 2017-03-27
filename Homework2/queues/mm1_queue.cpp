@@ -1,4 +1,4 @@
-/*
+﻿/*
   A MM1 queue object that, given lambda and mu, is capable
   of simulating a queue and evaluating results. This object
   can also be "plugged" in sequentially, creating queues
@@ -76,16 +76,16 @@ void MM1_Queue::initialize()
     {
 
       //TODO---------------------------------------------
-      expected_server_utilization_ ;
-      expected_idle_prob_ ;
-      expected_queue_length_ ;
-      expected_number_customers_ ;
-      expected_waiting_time_ ;
-      expected_response_time_ ;
+      expected_server_utilization_ = lambda_ /mu_;
+      expected_idle_prob_ = 1- (lambda_ / mu_); ///1-rho   rho=lambda/mu
+      expected_queue_length_ = ((lambda_ / mu_)*(lambda_ / mu_)) / (1- (lambda_ / mu_));//(lamda/mu)^2 / (1-(lambda/mu))
+      expected_number_customers_ = (lambda_ / mu_) / (1- (lambda_ / mu_));  //  rho/(1-rho)
+      expected_waiting_time_ = (lambda_ / mu_) / (mu_ - lambda_); // rho/ (mu-lamda)
+      expected_response_time_ = 1/ (mu_ - lambda_); //1/(mu-lamda)
       // ------------------------------------------------
-
-      rnd_arrival.set_rate(lambda_);
-      rnd_service.set_rate(mu_);
+	 
+      rnd_arrival.set_rate(lambda_); //  the rate of arrival is 1/ lambda_  for the mean
+      rnd_service.set_rate(mu_); // the rate of service times is 1/ mu_ for the mean
 
       if (generate_new_arrivals_)
       {

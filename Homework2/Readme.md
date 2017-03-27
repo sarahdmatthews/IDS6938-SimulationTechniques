@@ -73,11 +73,23 @@ Visually one could consider the numbers seem to be nonrandom from the RNG.
 | ![](images/RanluxVaryN.png?raw=true)  |
 
 **C
+Mersene Twister
+Chi-Squared
+Poission
+Uniform Discrete
+Normal
+binomial
+| ![](images/Part1Ac.png?raw=true)  |
+
+cumulative distribution function-If normally distributed these values should be zero
+Kolmogorov-Smirnov test-Dn is larger than  Dnα  Not a good fit of normal distribution. If the data is normally distributed then the critical value Dn,α will be larger than Dn.
+Skewness should be equal to zero if normal distribution
+Kurtosis should be equal to zero if normal distribution
 
 **D
 | Random Numbers in Unit Square Quasi-Random Sobol| 
 | ------------- | 
-| ![](images/QuasiRadomUnitSquare.png?raw=true)  |
+| ![](images/QuasiRadomUnitSquareCircle.png?raw=true)  |
 
 
 ##Part 2 - Snakes and Ladders (Discrete Event Markov Chains and Monte Carlo Simulations) (30 pts)
@@ -137,9 +149,19 @@ When a passanger arrives they have to wait in a queue to present their ID and ti
   *  expected number customers 
   * expected waiting time
   * expected response time 
-*  **(d) - 4pts:** Write code to call the functions to output and generate data from the airport senario. Plot and analyze the useful statistics/results in the program of your choice.  (Hint -  basically call  *.output();* on the MM1_Queue objects you create. Hint2 - two other use functions are *get_current_time()* and  *plot_results_output()* call intially on your intial MM1_Queue object.)  
-* **(e) - 15pts:** Download the personal edition of **[Anylogic](http://www.anylogic.com/)**, read through the [documentation](http://www.anylogic.com/learn-simulation) as needed, and set up the same type of simulation discussed above.
 
+**Response c
+   *   expected_server_utilization_ = lambda_ /mu_;
+   *   expected_idle_prob_ = 1- (lambda_ / mu_); ///1-rho   rho=lambda/mu
+   *   expected_queue_length_ = ((lambda_ / mu_)*(lambda_ / mu_)) / (1- (lambda_ / mu_));//(lamda/mu)^2 / (1-(lambda/mu))
+   *   expected_number_customers_ = (lambda_ / mu_) / (1- (lambda_ / mu_));  //  rho/(1-rho)
+   *   expected_waiting_time_ = (lambda_ / mu_) / (mu_ - lambda_); // rho/ (mu-lamda)
+   *   expected_response_time_ = 1/ (mu_ - lambda_); //1/(mu-lamda)
+
+*  **(d) - 4pts:** Write code to call the functions to output and generate data from the airport senario. Plot and analyze the useful statistics/results in the program of your choice.  (Hint -  basically call  *.output();* on the MM1_Queue objects you create. Hint2 - two other use functions are *get_current_time()* and  *plot_results_output()* call intially on your intial MM1_Queue object.)  
+
+* **(e) - 15pts:** Download the personal edition of **[Anylogic](http://www.anylogic.com/)**, read through the [documentation](http://www.anylogic.com/learn-simulation) as needed, and set up the same type of simulation discussed above.
+*Response: See attached file in Anylogic
 
 ##Part 4 - Implementing Extra Features (10 pts)
 Implementing 2 features on the extra features list. Pick any feature on the "*extra features*" list below to customize your assignment to fit your interests. Please document this in your writeup. (*Note: These should total 10pts. You could successfully implement a feature worth 10pts or greater. This also fulfills this requirement. The features are assigned points based on difficulty. The 5pt features are more straightforward.*)

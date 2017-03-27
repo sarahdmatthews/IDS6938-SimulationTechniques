@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework2\queues\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework2\queues\mm1_queue.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework2\queues\mm1_queue.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework2\queues\random_number_generator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework2\queues\customer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework2\queues\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{50502D4C-EB96-365B-8721-A44C0C5F7029}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{27B80B6A-D9E4-3EEA-8C38-5BFE2E6C2E4E}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
