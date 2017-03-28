@@ -84,7 +84,7 @@ Kurtosis should be equal to zero if normal distribution
 
 | Random Numbers in Unit Square and Unit Circle for Different RNG| 
 | ------------- | 
-| ![](images/UnitSquareUnitCircleRNGSlide1.png?raw=true)  |
+ ![](images/UnitSquareUnitCircleRNGSlide1.png?raw=true)  
 | ![](images/UnitSquareUnitCircleRNGSlide2.png?raw=true)  |
 | ![](images/UnitSquareUnitCircleRNGSlide3.png?raw=true)  |
 | ![](images/UnitSquareUnitCircleRNGSlide4.png?raw=true)  |
