@@ -18,31 +18,32 @@ void SetTransitionMatrix()
 	TransitionMatrix(2, 0) = prob;*/
 
 	// Make and idenity matrix : https://en.wikipedia.org/wiki/Identity_matrix from Piazza
-	
-	for (int i = 0; i < TransitionMatrix.rows() - 6; i++) //from class on 3/21  -6 omits last 6 rows
-		{
-			TransitionMatrix(i, i + 1) = prob;
-			TransitionMatrix(i, i + 2) = prob;
-			TransitionMatrix(i, i + 3) = prob;
-			TransitionMatrix(i, i + 4) = prob;
-			TransitionMatrix(i, i + 5) = prob;
-			TransitionMatrix(i, i + 6) = prob;
-		}
-// A markov chain defines the probability from state i to state j by a transition matrix, T
-		
-		//
-		//for (int j = 95 ; j < TransitionMatrix.rows(); j++)//all probabilities for last row is 0
-		//TransitionMatrix(j, j + 1) = prob;
-		//TransitionMatrix(j, j + 2) = prob;
-		//TransitionMatrix(j, j + 3) = prob;
-		//TransitionMatrix(j, j + 4) = prob;
-		//TransitionMatrix(j, j + 5) = prob;
-		//TransitionMatrix(j, j + 6) = prob;
-	//This is for the Null State  must do rows 95-100  
-		for (int j = 95; j < TransitionMatrix.size(); j++)//all probabilities for last row is 0
-		for (int k=95; k < TransitionMatrix.size() -1; k++)
-			TransitionMatrix(j, k+1) = prob;
 
+	for (int i = 0; i < TransitionMatrix.rows() -6; i++) //from class on 3/21  -6 omits last 6 rows
+	{
+		TransitionMatrix(i, i + 1) = prob;
+		TransitionMatrix(i, i + 2) = prob;
+		TransitionMatrix(i, i + 3) = prob;
+		TransitionMatrix(i, i + 4) = prob;
+		TransitionMatrix(i, i + 5) = prob;
+		TransitionMatrix(i, i + 6) = prob;
+	}
+	// A markov chain defines the probability from state i to state j by a transition matrix, T
+
+			//
+			//for (int j = 95 ; j < TransitionMatrix.rows(); j++)//all probabilities for last row is 0
+			//TransitionMatrix(j, j + 1) = prob;
+			//TransitionMatrix(j, j + 2) = prob;
+			//TransitionMatrix(j, j + 3) = prob;
+			//TransitionMatrix(j, j + 4) = prob;
+			//TransitionMatrix(j, j + 5) = prob;
+			//TransitionMatrix(j, j + 6) = prob;
+		//This is for the Null State  must do rows 95-100  
+//	for (int j = 95; j < TransitionMatrix.size(); j++)//all probabilities for last row is 0
+//		for (int k = 95; k < TransitionMatrix.size() - 1; k++){
+//			TransitionMatrix(j, k + 1) = prob;
+//}
+		
 		// row 95 probability   help from Joey and Roberto on the probability row creation
 		TransitionMatrix(95, 96) = prob;
 		TransitionMatrix(95, 97) = prob;
@@ -51,6 +52,7 @@ void SetTransitionMatrix()
 		TransitionMatrix(95, 100) = prob*2;
 
 		// row 96 probability
+		TransitionMatrix(96, 96) = prob;
 		TransitionMatrix(96, 97) = prob;
 		TransitionMatrix(96, 98) = prob;
 		TransitionMatrix(96, 99) = prob;
@@ -62,6 +64,7 @@ void SetTransitionMatrix()
 		TransitionMatrix(97, 100) = prob*4;
 
 		// row 98 probability
+		TransitionMatrix(98, 98) = prob;
 		TransitionMatrix(98, 99) = prob;
 		TransitionMatrix(98, 100) = prob*5;
 
@@ -71,8 +74,9 @@ void SetTransitionMatrix()
 		// row 100 probability
 		TransitionMatrix(100, 100) = 1;
 
-		//std::cout << TransitionMatrix << std::endl;
-		//exit(1); //class notes 3/21
+		std::cout << TransitionMatrix << std::endl;
+		exit(1); //class notes 3/21
+
 
 }
 void ModifyTransitionMatrix()

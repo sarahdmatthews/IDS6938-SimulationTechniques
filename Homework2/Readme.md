@@ -66,7 +66,7 @@ Poission
 Uniform Discrete
 Normal
 binomial
-| ![](images/Part1Ac.png?raw=true)  |
+
 | ![](images/Distributiongraphs.png?raw=true)  |
 | ![](images/Distributiongraphs2.png?raw=true)  |
 
@@ -77,6 +77,7 @@ Skewness should be equal to zero if normal distribution
 Kurtosis should be equal to zero if normal distribution
 
 * **D, F
+
 | Random Numbers in Unit Square Quasi-Random Sobol| 
 | ------------- | 
 | ![](images/QuasiRadomUnitSquareCircle.png?raw=true)  |
@@ -170,12 +171,14 @@ When a passanger arrives they have to wait in a queue to present their ID and ti
 | ------------- | 
 | ![](images/AnyLogicQueue.png?raw=true)  |
 | ![](images/AnyLogicRunning.png?raw=true)  |
-
+| ![](images/AnyLogic3D.png?raw=true)  |
 
 ##Part 4 - Implementing Extra Features (10 pts)
 Implementing 2 features on the extra features list. Pick any feature on the "*extra features*" list below to customize your assignment to fit your interests. Please document this in your writeup. (*Note: These should total 10pts. You could successfully implement a feature worth 10pts or greater. This also fulfills this requirement. The features are assigned points based on difficulty. The 5pt features are more straightforward.*)
 
-* **(10 Points)** - Add a 2D visualization to AnyLogic for Part 3.
+* **(10 Points)** - Add a 2D visualization to AnyLogic for Part 3.  See Anylogic file. 
+
+* **(10 Points)** - Add a 3D visualization to AnyLogic for Part 3.  I did this but it looks like my people are making a tornado before the queue.  
 
 ##Part 5 - Final Report (10 pts)
 Write up the results to the previous sections in the main *readme.md* in your forked repository. Turn in the URL for your fork in webcourses. Be visual. The report should contain the graphs and analysis requested. I have high expectations for the documentation here and you should allot the proper time to compose the writeup.

@@ -1,4 +1,24 @@
-﻿  Building Custom Rule C:/Users/sbull99/Desktop/IDS6938-SimulationTechniques/Homework2/SnakesAndLadders/CMakeLists.txt
-  CMake does not need to re-run because C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework2\SnakesAndLadders\build\CMakeFiles\generate.stamp is up-to-date.
-  test_markov.cpp
-C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework2\SnakesAndLadders\test_markov.cpp(8): fatal error C1083: Cannot open include file: 'Eigen\dense': No such file or directory
+﻿  test_markov.cpp
+c:\users\sbull99\desktop\ids6938-simulationtechniques\homework2\snakesandladders\TransitionMatrix.h(24): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\sbull99\desktop\ids6938-simulationtechniques\homework2\snakesandladders\TransitionMatrix.h(25): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\sbull99\desktop\ids6938-simulationtechniques\homework2\snakesandladders\TransitionMatrix.h(26): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\sbull99\desktop\ids6938-simulationtechniques\homework2\snakesandladders\TransitionMatrix.h(27): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\sbull99\desktop\ids6938-simulationtechniques\homework2\snakesandladders\TransitionMatrix.h(28): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\sbull99\desktop\ids6938-simulationtechniques\homework2\snakesandladders\TransitionMatrix.h(29): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\sbull99\desktop\ids6938-simulationtechniques\homework2\snakesandladders\TransitionMatrix.h(48): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\sbull99\desktop\ids6938-simulationtechniques\homework2\snakesandladders\TransitionMatrix.h(49): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\sbull99\desktop\ids6938-simulationtechniques\homework2\snakesandladders\TransitionMatrix.h(50): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\sbull99\desktop\ids6938-simulationtechniques\homework2\snakesandladders\TransitionMatrix.h(51): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\sbull99\desktop\ids6938-simulationtechniques\homework2\snakesandladders\TransitionMatrix.h(52): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\sbull99\desktop\ids6938-simulationtechniques\homework2\snakesandladders\TransitionMatrix.h(55): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\sbull99\desktop\ids6938-simulationtechniques\homework2\snakesandladders\TransitionMatrix.h(56): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\sbull99\desktop\ids6938-simulationtechniques\homework2\snakesandladders\TransitionMatrix.h(57): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\sbull99\desktop\ids6938-simulationtechniques\homework2\snakesandladders\TransitionMatrix.h(58): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\sbull99\desktop\ids6938-simulationtechniques\homework2\snakesandladders\TransitionMatrix.h(59): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\sbull99\desktop\ids6938-simulationtechniques\homework2\snakesandladders\TransitionMatrix.h(62): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\sbull99\desktop\ids6938-simulationtechniques\homework2\snakesandladders\TransitionMatrix.h(63): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\sbull99\desktop\ids6938-simulationtechniques\homework2\snakesandladders\TransitionMatrix.h(64): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\sbull99\desktop\ids6938-simulationtechniques\homework2\snakesandladders\TransitionMatrix.h(67): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\sbull99\desktop\ids6938-simulationtechniques\homework2\snakesandladders\TransitionMatrix.h(68): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\sbull99\desktop\ids6938-simulationtechniques\homework2\snakesandladders\TransitionMatrix.h(69): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  Markov.vcxproj -> C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework2\SnakesAndLadders\build\Debug\Markov.exe
