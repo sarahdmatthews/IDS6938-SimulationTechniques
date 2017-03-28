@@ -85,19 +85,20 @@ Kurtosis should be equal to zero if normal distribution
 
 | Random Numbers in Unit Square and Unit Circle for Different RNG| 
 | ------------- | 
- ![](images/UnitSquareUnitCircleRNGSlide1.png?raw=true)  
-| ![](images/UnitSquareUnitCircleRNGSlide2.png?raw=true)  |
-| ![](images/UnitSquareUnitCircleRNGSlide3.png?raw=true)  |
-| ![](images/UnitSquareUnitCircleRNGSlide4.png?raw=true)  |
-| ![](images/UnitSquareUnitCircleRNGSlide5.png?raw=true)  |
+| ![](images/UnitSquareUnitCircleRNGSlide1.PNP?raw=true)  |
+| ![](images/UnitSquareUnitCircleRNGSlide2.PNG?raw=true)  |
+| ![](images/UnitSquareUnitCircleRNGSlide3.PNG?raw=true)  |
+| ![](images/UnitSquareUnitCircleRNGSlide4.PNG?raw=true)  |
+| ![](images/UnitSquareUnitCircleRNGSlide5.PNG?raw=true)  |
 
 * **E, F
+***
 | Random Numbers in Unit Square and Unit Circle for Different Distributions| 
 | ------------- | 
-| ![](images/UnitSquareUnitCircleDistributionsSlide1.png?raw=true)  |
-| ![](images/UnitSquareUnitCircleDistributionsSlide2.png?raw=true)  |
-| ![](images/UnitSquareUnitCircleDistributionsSlide3.png?raw=true)  |
-| ![](images/UnitSquareUnitCircleDistributionsSlide4.png?raw=true)  |
+| ![](images/UnitSquareUnitCircleDistributionsSlide1.PNG?raw=true)  |
+| ![](images/UnitSquareUnitCircleDistributionsSlide2.PNG?raw=true)  |
+| ![](images/UnitSquareUnitCircleDistributionsSlide3.PNG?raw=true)  |
+| ![](images/UnitSquareUnitCircleDistributionsSlide4.PNG?raw=true)  |
 | ![](images/UnitSquareUnitCircleDistributionsSlide5.png?raw=true)  |
 
 ##Part 2 - Snakes and Ladders (Discrete Event Markov Chains and Monte Carlo Simulations) (30 pts)
