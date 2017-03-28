@@ -14,7 +14,7 @@
 
 # define DIM_MAX 2
 
-int dim_num = 1;
+int dim_num = 2;
 float *r;
 int seed;
 int seed_in;

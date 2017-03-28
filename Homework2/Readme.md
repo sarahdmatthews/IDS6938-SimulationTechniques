@@ -80,6 +80,9 @@ Uniform Discrete
 Normal
 binomial
 | ![](images/Part1Ac.png?raw=true)  |
+| ![](images/Distributiongraphs.png?raw=true)  |
+| ![](images/Distributiongraphs2.png?raw=true)  |
+
 
 cumulative distribution function-If normally distributed these values should be zero
 Kolmogorov-Smirnov test-Dn is larger than  Dnα  Not a good fit of normal distribution. If the data is normally distributed then the critical value Dn,α will be larger than Dn.
@@ -94,11 +97,6 @@ Kurtosis should be equal to zero if normal distribution
 
 ##Part 2 - Snakes and Ladders (Discrete Event Markov Chains and Monte Carlo Simulations) (30 pts)
 
-We all love board games. A board game can be viewed mathematically as a Markov chain, where the probability of moving to the next position depends only on the position you are currently at and the chances provided by tossing a dice. For this part of the homework we will simulate the game "*Snakes and Ladders*" (This goes by other names: Chutes and Ladders, Moksha Patam but all essentially the same gameplay.)
-
-| Moksha Patam  | Snakes and Ladders |
-| ------------- | ------------- |
-| ![](images/snake1.jpg?raw=true)  | ![](images/snake2.jpg?raw=true) |
 
 ##### Background
 The classic game has 100 positions on the board. You toss one die, and move squares based on the result of the die. If you land on a ladder you move up the ladder to a higher numbered square. If you land on a snake's mouth, you descend to a lower numbered square. For purposes of simulation, we will add one extra square 0 (starting position). So there are 101 positions on the board.
@@ -108,6 +106,8 @@ The game is **memoryless** - your progression to the next position is independen
 * **(a) Null State Game transition matrix - 10pts:** The *null state game* is defined by a game with no snakes and no ladders. This simplifies the game to just the moves of the two dice rolls. Create the transition matrix for the null state game. The Transition Matrix would be decided by the roll of a fair, six-sided die, so it would start to look like:
 <BR>![](images/null.png?raw=true)<BR>
 From state 0 it is equally probable of landing on squares 1-6. From state 1 t is equally probable of landing on squares 2-7, and so on. Create this transition matrix. The end is trickier, we will consider any roll past 100 a win case. (Opposed to rolling exactly onto square 100.) Confirm you have a well formed stochastic matrix (Write checks for confirming each row of T sums to one and all elements are non-negative). The Transition Matrix methods can be found in the TransitionMatrix.h file.
+
+**Response A  See Code for Null State, Eigen function error.  Need assistance with Eigen function 
 
 * **(b) Simulate and analyze the results of Null State Game - 10pts:** What is the modal number of moves required by a single player to finish the game? We will be simulating the game two different ways. **(1) Markov Chain**: The game can be analyzed with a row vector, *v* with 101 components, representing the probabilities that the player is on each of the positions. V(0) is (1,0,0,...,0) since we know we start at square 0. v evolves by: <BR>![](images/prob.png?raw=true)<BR>
 For this part (1) use the *Markov project* in the Snake and Ladders starter code.<BR>
@@ -150,6 +150,8 @@ When a passanger arrives they have to wait in a queue to present their ID and ti
   * expected waiting time
   * expected response time 
 
+**Response a  see code 
+**Response b  see code for process error
 **Response c
    *   expected_server_utilization_ = lambda_ /mu_;
    *   expected_idle_prob_ = 1- (lambda_ / mu_); ///1-rho   rho=lambda/mu
@@ -161,10 +163,19 @@ When a passanger arrives they have to wait in a queue to present their ID and ti
 *  **(d) - 4pts:** Write code to call the functions to output and generate data from the airport senario. Plot and analyze the useful statistics/results in the program of your choice.  (Hint -  basically call  *.output();* on the MM1_Queue objects you create. Hint2 - two other use functions are *get_current_time()* and  *plot_results_output()* call intially on your intial MM1_Queue object.)  
 
 * **(e) - 15pts:** Download the personal edition of **[Anylogic](http://www.anylogic.com/)**, read through the [documentation](http://www.anylogic.com/learn-simulation) as needed, and set up the same type of simulation discussed above.
-*Response: See attached file in Anylogic
+
+*Response e See attached file in Anylogic
+
+| Any Logic Screenshots| 
+| ------------- | 
+| ![](images/AnyLogicQueue.png?raw=true)  |
+| ![](images/AnyLogicRunning.png?raw=true)  |
+
 
 ##Part 4 - Implementing Extra Features (10 pts)
 Implementing 2 features on the extra features list. Pick any feature on the "*extra features*" list below to customize your assignment to fit your interests. Please document this in your writeup. (*Note: These should total 10pts. You could successfully implement a feature worth 10pts or greater. This also fulfills this requirement. The features are assigned points based on difficulty. The 5pt features are more straightforward.*)
+
+* **(10 Points)** - Add a 2D visualization to AnyLogic for Part 3.
 
 ##Part 5 - Final Report (10 pts)
 Write up the results to the previous sections in the main *readme.md* in your forked repository. Turn in the URL for your fork in webcourses. Be visual. The report should contain the graphs and analysis requested. I have high expectations for the documentation here and you should allot the proper time to compose the writeup.
