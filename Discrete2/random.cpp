@@ -36,16 +36,18 @@ int main()
 	//  2) - Change distribution types
 	//std::uniform_real_distribution<> dist(0, 1);  // example of a uniform distribution
 	//std::normal_distribution<> dist(0,1);    // example of a normal distribution
-	std::uniform_int_distribution<> dist(0, 1);  // example of a uniform discrete
+	//std::uniform_int_distribution<> dist(0, 1);  // example of a uniform discrete
 	//std::binomial_distribution<> dist(RAND_MAX);  // example of a binomial
 	//std::geometric_distribution<int> dist(RAND_MAX);  // example of a geometric distribution
-	//std::poisson_distribution<> dist(RAND_MAX);  // example of a poisson distribution
+	//std::poisson_distribution<> dist(4);  // example of a poisson distribution
 	//std::chi_squared_distribution<> dist(RAND_MAX);  // example of a chi-squared distribution
+	//std::weibull_distribution<> dist;
+	std::exponential_distribution <> dist (1);
 
 	auto generator = std::bind(dist, engine);
 
 	// 3) Play with N
-	unsigned int N = 1000;  // number of values generated
+	unsigned int N = 2500;  // number of values generated
 	double randomValue;
 	std::map<int, int> hist; //Counts of discrete values
 	std::vector<double> raw; //raw random values 

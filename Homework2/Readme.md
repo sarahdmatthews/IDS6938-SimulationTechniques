@@ -10,22 +10,9 @@ The assignment is due: **Tuesday, March 28 at 11:59PM (EST)**
 Sarah Matthews
 
 
-# Introduction
-A Discrete-event Model simulates a complex system as an ordered sequence of well-defined events. Mathematically Discrete-event models use Markov Processes, Queuing systems, events, probability / statistics, and random variables. The purpose of this assignment is to learn the mathematical foundations, how to program these models, and how to simulate them. The assignment is due Tuesday, March 28, 2017 at 11:59 P.M.
-
-Major parts for the Assignment
-You can think of the assignment broken up to 4 major parts:
-* Empirical Tests of Randomness
-* Snakes and Ladders (Discrete Event Markov Chains and Monte Carlo Simulations)
-* Discrete Event Simulation - Queue Simulation
-* Composing a final report
-
-The goal of this assignment is to become familiar with the concepts in the second third of the class. You will be expected to compose a *final report* which demonstrates your understanding on the material in each section of the assignment. Be visual! - Pictures say a thousand words so you do not have to. Show off your different configurations and really explore the assignment.
-
 # Assignment
 ##Part 0 - Getting Started
 Read the assignment. Sync your fork with the [main IDS6938 repository](https://github.com/hepcatjk/IDS6938-SimulationTechniques). Use CMake to create project files for the Homework 2 assignment (*Hint: and Discrete Lecture folders*). Set your *startup project* to the correct project. Test building and executing the homework 2 project. Look over and understand the framework and find the functions you need to edit for the assignment.
-
 
 
 ##Part 1: Empirical Tests of Randomness (20 pts).
@@ -38,7 +25,7 @@ We looked at different ways to generate [pseudo-random numbers](https://en.wikip
 * **(f)- 4pts:** Repeat parts (d) and (e) with a unit circle.
 
 ##Part 1 Responses:
-**A
+* **A
 
 | Parameters and Statistics | 
 | ------------- | 
@@ -55,7 +42,7 @@ We looked at different ways to generate [pseudo-random numbers](https://en.wikip
 | ![](images/Part1AScatter.png?raw=true)  |
 
 
-**B
+* **B
 
 | 5 Engines with Vary N Plot| 
 | ------------- | 
@@ -72,7 +59,7 @@ Visually one could consider the numbers seem to be nonrandom from the RNG.
 | ![](images/QuasiVaryN.png?raw=true)  |
 | ![](images/RanluxVaryN.png?raw=true)  |
 
-**C
+* **C
 Mersene Twister
 Chi-Squared
 Poission
@@ -84,30 +71,43 @@ binomial
 | ![](images/Distributiongraphs2.png?raw=true)  |
 
 
-cumulative distribution function-If normally distributed these values should be zero
+Cumulative distribution function-If normally distributed these values should be zero
 Kolmogorov-Smirnov test-Dn is larger than  Dnα  Not a good fit of normal distribution. If the data is normally distributed then the critical value Dn,α will be larger than Dn.
 Skewness should be equal to zero if normal distribution
 Kurtosis should be equal to zero if normal distribution
 
-**D
+* **D, F
 | Random Numbers in Unit Square Quasi-Random Sobol| 
 | ------------- | 
 | ![](images/QuasiRadomUnitSquareCircle.png?raw=true)  |
 
 
+| Random Numbers in Unit Square and Unit Circle for Different RNG| 
+| ------------- | 
+| ![](images/UnitSquareUnitCircleRNGSlide1.png?raw=true)  |
+| ![](images/UnitSquareUnitCircleRNGSlide2.png?raw=true)  |
+| ![](images/UnitSquareUnitCircleRNGSlide3.png?raw=true)  |
+| ![](images/UnitSquareUnitCircleRNGSlide4.png?raw=true)  |
+| ![](images/UnitSquareUnitCircleRNGSlide5.png?raw=true)  |
+
+* **E, F
+| Random Numbers in Unit Square and Unit Circle for Different Distributions| 
+| ------------- | 
+| ![](images/UnitSquareUnitCircleDistributionsSlide1.png?raw=true)  |
+| ![](images/UnitSquareUnitCircleDistributionsSlide2.png?raw=true)  |
+| ![](images/UnitSquareUnitCircleDistributionsSlide3.png?raw=true)  |
+| ![](images/UnitSquareUnitCircleDistributionsSlide4.png?raw=true)  |
+| ![](images/UnitSquareUnitCircleDistributionsSlide5.png?raw=true)  |
+
 ##Part 2 - Snakes and Ladders (Discrete Event Markov Chains and Monte Carlo Simulations) (30 pts)
 
 
 ##### Background
-The classic game has 100 positions on the board. You toss one die, and move squares based on the result of the die. If you land on a ladder you move up the ladder to a higher numbered square. If you land on a snake's mouth, you descend to a lower numbered square. For purposes of simulation, we will add one extra square 0 (starting position). So there are 101 positions on the board.
-
-The game is **memoryless** - your progression to the next position is independent of how you arrived there (opposed to Blackjack or Candyland where your progression is based on what cards have been drawn). A Markov Chain defines the probability of a move from state *i* to state *j* by a **Transition Matrix**, *T*. So in the case of *Snakes and Ladders* the dimensions of a transition matrix is 101x101.
-
 * **(a) Null State Game transition matrix - 10pts:** The *null state game* is defined by a game with no snakes and no ladders. This simplifies the game to just the moves of the two dice rolls. Create the transition matrix for the null state game. The Transition Matrix would be decided by the roll of a fair, six-sided die, so it would start to look like:
 <BR>![](images/null.png?raw=true)<BR>
 From state 0 it is equally probable of landing on squares 1-6. From state 1 t is equally probable of landing on squares 2-7, and so on. Create this transition matrix. The end is trickier, we will consider any roll past 100 a win case. (Opposed to rolling exactly onto square 100.) Confirm you have a well formed stochastic matrix (Write checks for confirming each row of T sums to one and all elements are non-negative). The Transition Matrix methods can be found in the TransitionMatrix.h file.
 
-**Response A  See Code for Null State, Eigen function error.  Need assistance with Eigen function 
+* **Response A  See Code for Null State, Eigen function error.  Need assistance with Eigen function 
 
 * **(b) Simulate and analyze the results of Null State Game - 10pts:** What is the modal number of moves required by a single player to finish the game? We will be simulating the game two different ways. **(1) Markov Chain**: The game can be analyzed with a row vector, *v* with 101 components, representing the probabilities that the player is on each of the positions. V(0) is (1,0,0,...,0) since we know we start at square 0. v evolves by: <BR>![](images/prob.png?raw=true)<BR>
 For this part (1) use the *Markov project* in the Snake and Ladders starter code.<BR>
@@ -164,7 +164,7 @@ When a passanger arrives they have to wait in a queue to present their ID and ti
 
 * **(e) - 15pts:** Download the personal edition of **[Anylogic](http://www.anylogic.com/)**, read through the [documentation](http://www.anylogic.com/learn-simulation) as needed, and set up the same type of simulation discussed above.
 
-*Response e See attached file in Anylogic
+**Response e See attached file in Anylogic
 
 | Any Logic Screenshots| 
 | ------------- | 

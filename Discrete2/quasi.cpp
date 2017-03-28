@@ -41,6 +41,7 @@ int main()
 
 	//use a random device
 	std::random_device rd;
+	std::mt19937_64 engine(rd());
 	// Another seed intialization routine (this is just here for future reference for you.)
 	// initialize the random number generator with time-dependent seed
 	//uint64_t timeSeed = std::chrono::high_resolution_clock::now().time_since_epoch().count();
