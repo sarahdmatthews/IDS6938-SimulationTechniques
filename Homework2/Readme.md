@@ -91,7 +91,7 @@ Kurtosis should be equal to zero if normal distribution
 
 | Random Numbers in Unit Square and Unit Circle for Different RNG| 
 | ------------- | 
-| ![](images/UnitSquareUnitCircleRNGSlide1.PNP?raw=true)  |
+| ![](images/UnitSquareUnitCircleRNGSlide1.PNG?raw=true)  |
 | ------------- |
 | ![](images/UnitSquareUnitCircleRNGSlide2.PNG?raw=true)  |
 | ------------- |
@@ -113,7 +113,7 @@ Kurtosis should be equal to zero if normal distribution
 | ------------- |
 | ![](images/Slide4.PNG?raw=true)  |
 | ------------- |
-| ![](images/Slide5.png?raw=true)  |
+| ![](images/Slide5.PNG?raw=true)  |
 
 ##Part 2 - Snakes and Ladders (Discrete Event Markov Chains and Monte Carlo Simulations) (30 pts)
 
@@ -168,6 +168,10 @@ When a passanger arrives they have to wait in a queue to present their ID and ti
 
 *  **(d) - 4pts:** Write code to call the functions to output and generate data from the airport senario. Plot and analyze the useful statistics/results in the program of your choice.  (Hint -  basically call  *.output();* on the MM1_Queue objects you create. Hint2 - two other use functions are *get_current_time()* and  *plot_results_output()* call intially on your intial MM1_Queue object.)  
 
+| Queue Data| 
+| ------------- | 
+| ![](images/QueueStats.png?raw=true)  |
+
 * **(e) - 15pts:** Download the personal edition of **[Anylogic](http://www.anylogic.com/)**, read through the [documentation](http://www.anylogic.com/learn-simulation) as needed, and set up the same type of simulation discussed above.
 
 ***Response e See attached file in Anylogic
@@ -185,7 +189,7 @@ Implementing 2 features on the extra features list. Pick any feature on the "*ex
 
 * **(10 Points)** - Add a 3D visualization to AnyLogic for Part 3.  I did this but it looks like my people are making a tornado before the queue.  
 
-* **(5 Points)** - Pick a research problem (from your dissertation, Energy Microgrids, Missle Defence...). Compare and contrast different software packages (AnyLogic, Simio, Simulu8, Arena etc). Convince me as your "manager/advisor" what advantages, weaknesses, and costs each program has. Come to a conclusion. Roughly sketch out how you would formulate the problem in the framework.
+
 
 ##Part 5 - Final Report (10 pts)
 Write up the results to the previous sections in the main *readme.md* in your forked repository. Turn in the URL for your fork in webcourses. Be visual. The report should contain the graphs and analysis requested. I have high expectations for the documentation here and you should allot the proper time to compose the writeup.
