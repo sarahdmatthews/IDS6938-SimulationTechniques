@@ -22,13 +22,17 @@ int main(){
 	std::ofstream myfile;
 	myfile.open("markov_results.txt");
 
-	
+	for (int j = 0; j < 20; j++) {
+
    // TODO add Markov vector - Matrix multiplication
 	v = v.transpose() * TransitionMatrix; //formula from Piazza
-
-	std::cout <<  v << std::endl;
-	myfile << v << std::endl;  //this is just a sample, becareful how you print to file so you can mine useful stats
-	
+	for (int i = 0; i < size; i++) {
+		std::cout << v(i) << ",";
+		myfile << v(i) << ",";  //this is just a sample, becareful how you print to file so you can mine useful stats
+	}
+	std::cout << std::endl;
+	myfile << std::endl;
+	}
 	myfile.close();
 
 

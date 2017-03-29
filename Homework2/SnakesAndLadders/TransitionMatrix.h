@@ -75,7 +75,7 @@ void SetTransitionMatrix()
 		TransitionMatrix(100, 100) = 1;
 
 		std::cout << TransitionMatrix << std::endl;
-		exit(1); //class notes 3/21
+//		exit(1); //class notes 3/21
 
 
 }
@@ -230,8 +230,8 @@ void ModifyTransitionMatrix()
 	TransitionMatrix(96, 99) = 0;	TransitionMatrix(96, 70) = prob;
 	TransitionMatrix(97, 99) = 0;	TransitionMatrix(97, 70) = prob;
 	TransitionMatrix(98, 99) = 0;	TransitionMatrix(98, 70) = prob;
-
-	std::cout << TransitionMatrix << std::endl;
+/*
+	std::cout << TransitionMatrix << std::endl;*/
 
 
 
