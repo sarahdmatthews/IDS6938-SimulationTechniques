@@ -16,57 +16,63 @@ Read the assignment. Sync your fork with the [main IDS6938 repository](https://g
 
 
 ##Part 1: Empirical Tests of Randomness (20 pts).
-We looked at different ways to generate [pseudo-random numbers](https://en.wikipedia.org/wiki/Pseudorandom_number_generator) and [quasi random numbers](https://en.wikipedia.org/wiki/Low-discrepancy_sequence). Generating random numbers are crucial to Discrete-Event simulations which rely on random variables and stochastic processes. This problem explores different random number generators, distributions, and statistics. Different [C++ pseudo-random numbers engines are instantiated](http://www.cplusplus.com/reference/random/) already for you. Also a a wide variety of standard distributions are implemented. Two quasi random number generators are also provided.
-* **(a) - 3pts:** Output the results of five different random number engines, using a uniform distribution for values between [0-100]. Generate useful charts and statistics from the output to analyze how uniform these values truly are. You are expected to look at some advanced statistics and test, for example: tests like the Kolmogorov-Smirnov test, Chi-square test, Autocorrelation test, and Spearman’s Rank Correlation Coefficient are a few examples of ones your could use.)
-* **(b) - 2pts:**  Vary *N* (amount of samples). How do things change.
-* **(c) - 3pts:** Fix a random engine of your choice from part (a), and now vary five different [distributions](http://www.cplusplus.com/reference/random/) for just the psedo-random numbers. Again, analyze your results with graphs and statistics of choice.
-* **(d)- 4pts:** Generate random numbers in two-dimensions for a unit square. Plot the results for the different random number engines. The vertical axis should vary N in increasing order. The horizontal axis should show of the random number engines.
-* **(e)- 4pts:** Generate random numbers in two-dimensions for a unit square. Plot the results for the different distributions. The vertical axis should vary N in increasing order. The horizontal axis should show of the random number engines. (See [Random Numbers Webcourse page](https://webcourses.ucf.edu/courses/1246518/pages/random-numbers?module_item_id=10541423) for a rough idea what you should produce.)
-* **(f)- 4pts:** Repeat parts (d) and (e) with a unit circle.
 
 ##Part 1 Responses:
-* **A
+* **A 
+***Outputs for 5 different RNG-Mersene Twister, Knuth B, Minimal Std Rand, Ranlux and Quasi.  
+Using uniform distribution for values between 0-100.  Statistics that were generated include Mean,
+Standard Deviation Stdev, Standard error of the mean SE, Chi Squared test statistic.  The alpha 
+used as the critical value equaled 123.255.  N was 100000, expected generated of 1000, the df was 99.
 
 | Parameters and Statistics | 
 | ------------- | 
 | ![](images/Part1A1.png?raw=true)  | 
 
-
+*** The tests that were included in the analysis included the Kolmogorov-Smirnov test, Skewness and Kurtosis.  
+The K-S test is used to look at goodness of fit test.  The null hypothesis is that the data generated will be
+normally distributed.  If the test statistic D is greater than the critical value then the null is rejected. 
+In all the 5 RNG's the D is greater than the critical value.  A normal distribution has skewness and excess kurtosis of 0, 
+if the distribution is close to this values then it is probably close to normal.
+  
 | Kolmogorov-Smirnov test, Skewness and Kurtosis| 
 | ------------- | 
 | ![](images/Part1A2.png?raw=true)  |
 
+*** Graphing the RNG and reviewing the test statistics illustrates that the RNG are not normally distributed.  
 
 | ScatterPlots| 
 | ------------- | 
 | ![](images/Part1AScatter.png?raw=true)  |
 
 
-* **B
+* **B 
+***The RNG samples "N" are varied.  
+With N varied among the random generators the trend remains the same, the magnitude is increases as N is increased. 
 
 | 5 Engines with Vary N Plot| 
 | ------------- | 
 | ![](images/Part1B1.png?raw=true)  |
 
-With N varied among the random generators the trend remains the same, the magnitude is increases and N is increased. 
-Visually one could consider the numbers seem to be nonrandom from the RNG.
- 
+*** As N is varied the test statistics are increased as N is increased.  
+
 | 5 Engines with Vary N Statistics| 
 | ------------- | 
 | ![](images/MinimalStdVaryN.png?raw=true)  |
+| ------------- | 
 | ![](images/MTStatsVaryN.png?raw=true)  |
+| ------------- | 
 | ![](images/KnuthVaryN.png?raw=true)  |
+| ------------- | 
 | ![](images/QuasiVaryN.png?raw=true)  |
+| ------------- | 
 | ![](images/RanluxVaryN.png?raw=true)  |
 
 * **C
-Mersene Twister
-Chi-Squared
-Poission
-Uniform Discrete
-Normal
-binomial
+*** The distributions used are used with the RNG-Mersene Twister. N is 100000
+Distributions are Normal, Binomial, Uniform Discrete, Poission and Chi Squared.
 
+| 5 Distributions in Mersene Twister| 
+| ------------- | 
 | ![](images/Distributiongraphs.png?raw=true)  |
 | ![](images/Distributiongraphs2.png?raw=true)  |
 
@@ -86,30 +92,37 @@ Kurtosis should be equal to zero if normal distribution
 | Random Numbers in Unit Square and Unit Circle for Different RNG| 
 | ------------- | 
 | ![](images/UnitSquareUnitCircleRNGSlide1.PNP?raw=true)  |
+| ------------- |
 | ![](images/UnitSquareUnitCircleRNGSlide2.PNG?raw=true)  |
+| ------------- |
 | ![](images/UnitSquareUnitCircleRNGSlide3.PNG?raw=true)  |
+| ------------- |
 | ![](images/UnitSquareUnitCircleRNGSlide4.PNG?raw=true)  |
+| ------------- |
 | ![](images/UnitSquareUnitCircleRNGSlide5.PNG?raw=true)  |
 
 * **E, F
 ***
 | Random Numbers in Unit Square and Unit Circle for Different Distributions| 
 | ------------- | 
-| ![](images/UnitSquareUnitCircleDistributionsSlide1.PNG?raw=true)  |
-| ![](images/UnitSquareUnitCircleDistributionsSlide2.PNG?raw=true)  |
-| ![](images/UnitSquareUnitCircleDistributionsSlide3.PNG?raw=true)  |
-| ![](images/UnitSquareUnitCircleDistributionsSlide4.PNG?raw=true)  |
-| ![](images/UnitSquareUnitCircleDistributionsSlide5.png?raw=true)  |
+| ![](images/Slide1.PNG?raw=true)  |
+| ------------- |
+| ![](images/Slide2.PNG?raw=true)  |
+| ------------- |
+| ![](images/Slide3.PNG?raw=true)  |
+| ------------- |
+| ![](images/Slide4.PNG?raw=true)  |
+| ------------- |
+| ![](images/Slide5.png?raw=true)  |
 
 ##Part 2 - Snakes and Ladders (Discrete Event Markov Chains and Monte Carlo Simulations) (30 pts)
 
 
 ##### Background
-* **(a) Null State Game transition matrix - 10pts:** The *null state game* is defined by a game with no snakes and no ladders. This simplifies the game to just the moves of the two dice rolls. Create the transition matrix for the null state game. The Transition Matrix would be decided by the roll of a fair, six-sided die, so it would start to look like:
-<BR>![](images/null.png?raw=true)<BR>
-From state 0 it is equally probable of landing on squares 1-6. From state 1 t is equally probable of landing on squares 2-7, and so on. Create this transition matrix. The end is trickier, we will consider any roll past 100 a win case. (Opposed to rolling exactly onto square 100.) Confirm you have a well formed stochastic matrix (Write checks for confirming each row of T sums to one and all elements are non-negative). The Transition Matrix methods can be found in the TransitionMatrix.h file.
+* **(a) Create this transition matrix. The end is trickier, we will consider any roll past 100 a win case. (Opposed to rolling exactly onto square 100.) Confirm you have a well formed stochastic matrix (Write checks for confirming each row of T sums to one and all elements are non-negative). The Transition Matrix methods can be found in the TransitionMatrix.h file.
 
-* **Response A  See Code for Null State, Eigen function error.  Need assistance with Eigen function 
+***Response A  See Code for Null State Game Transition Matrix
+***Response B  Code simulated.  The modal number of moves required by a single player to finish the game is
 
 * **(b) Simulate and analyze the results of Null State Game - 10pts:** What is the modal number of moves required by a single player to finish the game? We will be simulating the game two different ways. **(1) Markov Chain**: The game can be analyzed with a row vector, *v* with 101 components, representing the probabilities that the player is on each of the positions. V(0) is (1,0,0,...,0) since we know we start at square 0. v evolves by: <BR>![](images/prob.png?raw=true)<BR>
 For this part (1) use the *Markov project* in the Snake and Ladders starter code.<BR>
@@ -138,23 +151,14 @@ Run the same simulation and analyze your results similar to part (b) for the pro
 
 ##Part 3 - Discrete Event Simulation - Queue Simulation (30 pts)
 
-This problem will look at queues and commonly used performance measures. For this problem we will look to design a simple airport security check. We will make the following assumptions: (1) there is only one airline - Southwest; (2) passengers' interarrival times are independent and identically distributed (IID) with an exponential distribution with mean 1 / lambda. The service times are also assumed to be IID and exponentially distributed random variables with mean 1 / mu.
+We will make the following assumptions: (1) there is only one airline - Southwest; (2) passengers' interarrival times are independent and identically distributed (IID) with an exponential distribution with mean 1 / lambda. The service times are also assumed to be IID and exponentially distributed random variables with mean 1 / mu.
 <BR>![](images/queue.png?raw=true)<BR>
 When a passanger arrives they have to wait in a queue to present their ID and ticket to the gate agent with all the other passengers. Once approved by the agent they will have to pass through a security check. Since this is Orlando, there are only 3 open metal/screening devices open and again passangers have to wait in a queue. After passing through security you again have to wait in a queue to board your plane.
 
-* **(a) - 4pts:** To start create the senario in the figure above in *main.cpp*. Checkin will have a *mu* of 53 and accept new arrivals, the security gates will have a *mu* of 20, and will not accept new arrivials, boarding will have a *mu* of 80. You will have to set up  the appropriate *MM1_Queue* objects to capture the functionality above.
-* **(b) - 4pts:** You want to add a check that your process is within an error range *is_within_error_range(float)* where the error range will be 0.002. You also want to process the next event, and add an external arrival where marked.
-* **(c) - 3pts:** in *mm1_queue.cpp* : add code to caculate the expected results for: 
-  *  expected_server_utilization 
-  *    expected idle prob
-  *   expected queue length 
-  *  expected number customers 
-  * expected waiting time
-  * expected response time 
 
-**Response a  see code 
-**Response b  see code for process error
-**Response c
+**Response a  see code in in *main.cpp*. Checkin will have a *mu* of 53 and accept new arrivals, the security gates will have a *mu* of 20, and will not accept new arrivials, boarding will have a *mu* of 80. You will have to set up  the appropriate *MM1_Queue* objects to capture the functionality above.
+**Response b  see code for process error range will be 0.002
+**Response c in *mm1_queue.cpp* : add code to caculate the expected results for:
    *   expected_server_utilization_ = lambda_ /mu_;
    *   expected_idle_prob_ = 1- (lambda_ / mu_); ///1-rho   rho=lambda/mu
    *   expected_queue_length_ = ((lambda_ / mu_)*(lambda_ / mu_)) / (1- (lambda_ / mu_));//(lamda/mu)^2 / (1-(lambda/mu))
@@ -166,7 +170,7 @@ When a passanger arrives they have to wait in a queue to present their ID and ti
 
 * **(e) - 15pts:** Download the personal edition of **[Anylogic](http://www.anylogic.com/)**, read through the [documentation](http://www.anylogic.com/learn-simulation) as needed, and set up the same type of simulation discussed above.
 
-**Response e See attached file in Anylogic
+***Response e See attached file in Anylogic
 
 | Any Logic Screenshots| 
 | ------------- | 
@@ -180,6 +184,8 @@ Implementing 2 features on the extra features list. Pick any feature on the "*ex
 * **(10 Points)** - Add a 2D visualization to AnyLogic for Part 3.  See Anylogic file. 
 
 * **(10 Points)** - Add a 3D visualization to AnyLogic for Part 3.  I did this but it looks like my people are making a tornado before the queue.  
+
+* **(5 Points)** - Pick a research problem (from your dissertation, Energy Microgrids, Missle Defence...). Compare and contrast different software packages (AnyLogic, Simio, Simulu8, Arena etc). Convince me as your "manager/advisor" what advantages, weaknesses, and costs each program has. Come to a conclusion. Roughly sketch out how you would formulate the problem in the framework.
 
 ##Part 5 - Final Report (10 pts)
 Write up the results to the previous sections in the main *readme.md* in your forked repository. Turn in the URL for your fork in webcourses. Be visual. The report should contain the graphs and analysis requested. I have high expectations for the documentation here and you should allot the proper time to compose the writeup.
