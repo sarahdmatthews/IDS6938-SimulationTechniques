@@ -29,7 +29,7 @@ int main() {
 	std::vector<int> discreteMC;
 	for (unsigned int i = 0; i < N; ++i) {
 		
-		//TODO (add DTMC, and histogram lines.) help from Julie in class
+		//TODO (add DTMC, and histogram lines.) help from Julie in class got from discrete 3 
 		discreteMC = DTMC(TransitionMatrix, 10, start);
 		 ++hist[std::round(discreteMC.back())];
 		//  }
