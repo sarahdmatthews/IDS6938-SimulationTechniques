@@ -5,6 +5,7 @@
 #include "stdafx.h"
 #include "Behavior.h"
 #include "Agent.h"
+#include <random>
 
 #ifdef _DEBUG
 #undef THIS_FILE
@@ -279,11 +280,16 @@ void SIMAgent::FindDeriv()
 	/*********************************************
 	// TODO: Add code here   help from Julie in Class
 	*********************************************/
-	deriv[0] = state[2];   
-	deriv[1] = state[3];
+	deriv[0] = state[2];  
+	deriv[1] = state[3];  //1st dervivative is velocity
 	deriv[2] = input[0] / Mass;
-	deriv[3] = input[1] / Inertia;
-
+	/*deriv[3] = input[1] / Inertia;*/
+	/*deriv[0] = 0;*/
+	deriv[3] = input[1] / Inertia - state[3];
+	/*deriv[0] = input[0] / Mass;  //this makes the agent twitch
+	deriv[1] = input[1] / Inertia;
+	deriv[2] = state[2];  //deriv[2] is velocity per notes but this group does not work
+	deriv[3] = state[3];*/
 }
 
 /*
@@ -340,12 +346,12 @@ vec2 SIMAgent::Seek()
 	vec2 tmp;
 	tmp = goal - GPos;
 	tmp.Normalize();
+	/*thetad = atan2(tmp[0], tmp[1]);*/
 	thetad = atan2(tmp[1], tmp[0]);
-	ClampAngle(thetad);
+	thetad = thetad + M_PI; 
+	/*ClampAngle(thetad);*/
 	float vn = SIMAgent::MaxVelocity;
-	return vec2((cos(thetad)*vn), (sin(thetad)*vn));
-
-	
+	tmp = vec2((cos(thetad)*vn), (sin(thetad)*vn));
 	return tmp;
 }
 
@@ -365,11 +371,12 @@ vec2 SIMAgent::Flee()
 	vec2 tmp;
 	tmp = goal - GPos;
 	tmp.Normalize();
+	/*thetad = atan2(tmp[0], tmp[1]);*/
 	thetad = atan2(tmp[1], tmp[0]);
-	thetad = thetad + M_PI;
-	ClampAngle(thetad);
+	/*thetad = thetad + M_PI;*/
+	/*ClampAngle(thetad);*/
 	float vn = SIMAgent::MaxVelocity;
-	return vec2((cos(thetad)*vn), (sin(thetad)*vn));
+	tmp = vec2((cos(thetad)*vn), (sin(thetad)*vn));
 	return tmp;
 }
 
@@ -385,18 +392,21 @@ vec2 SIMAgent::Flee()
 vec2 SIMAgent::Arrival()
 {
 	/*********************************************
-	// TODO: Add code here
+	// TODO: Add code here   this is a combo of webcourse information and my class notes
 	*********************************************/
 	vec2 tmp;
-	tmp = goal - GPos;
-	/*vd = abs(tmp) * KArrival;*/
-	vd = tmp.Length();
-	if (vd > 0);
-	thetad = M2_PI;	
-	/*ClampAngle(thetad);*/
+	vec2 Xd= goal - GPos; 
+	double Y = Xd.Length();
+	vd = Xd.Length() * KArrival;
+	thetad = atan2(Xd[1], Xd[0]);
+	thetad += M_PI;
+	if (Y > 0.0)
+	{
+		return vec2((cos(thetad)*vd), (sin(thetad)*vd));
+	}
 	float M = SIMAgent::KArrival;
-	/*vn = (M * vd / radius);*/
-	return vec2((cos(thetad)*M), (sin(thetad)*M));
+	float vn = (M * vd / radius);
+	return vec2((cos(thetad)*vn), (sin(thetad)*vn));
 	return tmp;
 }
 
@@ -415,7 +425,17 @@ vec2 SIMAgent::Departure()
 	// TODO: Add code here
 	*********************************************/
 	vec2 tmp;
-
+	vec2 Xd = goal - GPos;
+	double Y = Xd.Length();
+	vd = Xd.Length() * KDeparture;
+	thetad = atan2(Xd[1], Xd[0]);
+	if (Y > 0.0)
+	{
+		return vec2((cos(thetad)*vd), (sin(thetad)*vd));
+	}
+	float M = SIMAgent::KArrival;
+	float vn = (M * vd / radius);
+	return vec2((cos(thetad)*vn), (sin(thetad)*vn));
 	return tmp;
 }
 
@@ -433,8 +453,14 @@ vec2 SIMAgent::Wander()
 	/*********************************************
 	// TODO: Add code here
 	*********************************************/
+	//wander add a random number using rand command  http://tigerprints.clemson.edu/cgi/viewcontent.cgi?article=1956&context=all_theses
+	
 	vec2 tmp;
-
+	std::random_device rd;  //discrete 2 hw
+	std::mt19937_64 engine(rd()); //discrete 2 hw for random variables
+	std::uniform_real_distribution<double> dist(0, M_PI);  // example of a uniform distribution
+	//thetad = atan2(Xv[1], Xv[0]);   
+	tmp = vec2(vd*cos(thetad), vd*sin(thetad));
 	return tmp;
 }
 
