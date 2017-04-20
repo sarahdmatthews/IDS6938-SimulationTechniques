@@ -228,7 +228,7 @@ void SIMAgent::InitValues()
 	SIMAgent::KNoise, SIMAgent::KWander, SIMAgent::KAvoid, SIMAgent::TAvoid, SIMAgent::RNeighborhood,
 	SIMAgent::KSeparate, SIMAgent::KAlign, SIMAgent::KCohesion.
 	*********************************************/
-	Kv0 = 10.0;
+	Kv0 = 10.0;   //used Utube video for these parameters
 	Kp1 = 200.0;
 	Kv1 = 32.0;
 	KArrival = 0.05;
@@ -487,7 +487,7 @@ vec2 SIMAgent::Avoid()
 }
 
 /*
-*	Separation behavior
+*  Separation behavior
 *  SIMAgent::agents[i] gives the pointer to the ith agent in the environment
 *  Separation settings are in SIMAgent::RNeighborhood and SIMAgent::KSeperate
 *  You need to compute the desired velocity and desired orientation
@@ -500,9 +500,34 @@ vec2 SIMAgent::Separation()
 	// TODO: Add code here
 	*********************************************/
 	vec2 tmp;
-
+	//SIMAgent::agents[i];
+	vec2 S = vec2(0.0, 0.0);
+	for (int i = 0; i< agents.size(); i++)
+	{
+		vec2 dist = GPos - agents[i]->GPos;
+		int distx = dist[0];
+		int disty = dist[1];
+		if (distx == 0 && disty == 0)
+		{
+			continue;
+		}
+		double neighbors = sqrt(distx*distx + disty*disty); //calculate length of the vector
+		vec2 Distance = vec2(distx, disty);
+		if (neighbors < RNeighborhood);
+		{
+			S[0] = S[0] + (distx/neighbors*neighbors);
+			S[1] = S[1] + (disty/neighbors*neighbors);
+			
+		}
+	}
+	vec2 newbie = KSeparate * S;
+	newbie.Normalize();
+	vd = sqrt((newbie[0] * newbie[0] + (newbie[1] * newbie[1])));
+	thetad = atan2(newbie[1], newbie[0]);
+	tmp = vec2(cos(thetad)*vd, sin(thetad)*vd);
 	return tmp;
 }
+	
 
 /*
 *	Alignment behavior
@@ -515,10 +540,36 @@ vec2 SIMAgent::Separation()
 vec2 SIMAgent::Alignment()
 {
 	/*********************************************
-	// TODO: Add code here
+	// TODO: Add code here  do alignment first, then cohension and separation is a simple change in code https://gamedevelopment.tutsplus.com/tutorials/3-simple-rules-of-flocking-behaviors-alignment-cohesion-and-separation--gamedev-3444
 	*********************************************/
+	//alignment is causes the agent to line up with the closest agent nearby
 	vec2 tmp;
-
+	//SIMAgent::agents[i];
+	vec2 A = Arrival();
+	int agents_number = 0;
+	for (int i = 0; i< agents.size(); i++)
+	{
+		vec2 dist = GPos - agents[i]->GPos;  //dist is the goal position minus the position of the agent
+		int distx = dist[0];
+		int disty = dist[1];
+		if (distx == 0 && disty == 0)
+		{
+		}
+		double neighbors = sqrt(distx*distx + disty*disty); //calculate length of the vector
+		if (neighbors < KAlign);
+		{
+			A[0] = A[0] + cos(agents[i]->state[1] * agents[i]->state[2]);
+			A[1] = A[1] + cos(agents[i]->state[1] * agents[i]->state[2]);
+			agents_number++;
+		}
+	}
+	//vec2 newbie = KAlign / agents_number*A;
+	vec2 newbie = A / agents_number;
+	newbie.Normalize();
+	vd = sqrt((newbie[0] * newbie[0] + (newbie[1] * newbie[1]))); 
+	//thetad = atan2(newbie[1], newbie[0]);
+	//tmp = vec2(cos(thetad)*vd, sin(thetad)*vd);
+	tmp = newbie;
 	return tmp;
 }
 
@@ -533,10 +584,36 @@ vec2 SIMAgent::Alignment()
 vec2 SIMAgent::Cohesion()
 {
 	/*********************************************
-	// TODO: Add code here
+	// TODO: Add code here  Cohesion goes towards the Center of Mass and change in velocity to position
 	*********************************************/
 	vec2 tmp;
-
+	//SIMAgent::agents[i];
+	vec2 S = vec2(0.0, 0.0);
+	int agents_number = 0;
+	for (int i = 0; i< agents.size(); i++)
+	{
+		vec2 dist = GPos - agents[i]->GPos;
+		int distx = dist[0];
+		int disty = dist[1];
+		if (distx == 0 && disty == 0)
+		{
+			continue;
+		}
+		double neighbors = sqrt(distx*distx + disty*disty); //calculate length of the vector
+		vec2 Distance = vec2(distx, disty);
+		if (neighbors < RNeighborhood);
+		{
+			S[0] = S[0] + agents[i]->GPos[0];
+			S[1] = S[1] + agents[i]->GPos[0];
+			agents_number = agents_number + 1;
+		}
+	}
+	vec2 Xm = S / agents_number;
+	Xm.Normalize();
+	vec2 VCoh = KCohesion *(Xm - GPos);
+	vd = sqrt((VCoh[0] * VCoh[0] + (VCoh[1] * VCoh[1])));
+	thetad = atan2(VCoh[1], VCoh[0]);
+	tmp = vec2(cos(thetad)*vd, sin(thetad)*vd);
 
 	return tmp;
 }
