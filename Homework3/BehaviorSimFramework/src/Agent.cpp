@@ -350,8 +350,8 @@ vec2 SIMAgent::Seek()
 	thetad = atan2(tmp[1], tmp[0]);
 	thetad = thetad + M_PI; 
 	/*ClampAngle(thetad);*/
-	float vn = SIMAgent::MaxVelocity;
-	tmp = vec2((cos(thetad)*vn), (sin(thetad)*vn));
+	vd = SIMAgent::MaxVelocity;
+	tmp = vec2((cos(thetad)*vd), (sin(thetad)*vd));
 	return tmp;
 }
 
@@ -371,9 +371,9 @@ vec2 SIMAgent::Flee()
 	vec2 tmp;
 	tmp = goal - GPos;
 	tmp.Normalize();
-	/*thetad = atan2(tmp[0], tmp[1]);*/
-	thetad = atan2(tmp[1], tmp[0]);
-	/*thetad = thetad + M_PI;*/
+	thetad = atan2(tmp[0], tmp[1]);
+	//thetad = atan2(tmp[1], tmp[0]);
+	thetad = thetad + M_PI;
 	/*ClampAngle(thetad);*/
 	float vn = SIMAgent::MaxVelocity;
 	tmp = vec2((cos(thetad)*vn), (sin(thetad)*vn));
@@ -433,7 +433,7 @@ vec2 SIMAgent::Departure()
 	{
 		return vec2((cos(thetad)*vd), (sin(thetad)*vd));
 	}
-	float M = SIMAgent::KArrival;
+	float M = SIMAgent::KDeparture;
 	float vn = (M * vd / radius);
 	return vec2((cos(thetad)*vn), (sin(thetad)*vn));
 	return tmp;
@@ -456,11 +456,15 @@ vec2 SIMAgent::Wander()
 	//wander add a random number using rand command  http://tigerprints.clemson.edu/cgi/viewcontent.cgi?article=1956&context=all_theses
 	
 	vec2 tmp;
-	std::random_device rd;  //discrete 2 hw
-	std::mt19937_64 engine(rd()); //discrete 2 hw for random variables
-	std::uniform_real_distribution<double> dist(0, M_PI);  // example of a uniform distribution
-	//thetad = atan2(Xv[1], Xv[0]);   
-	tmp = vec2(vd*cos(thetad), vd*sin(thetad));
+	//std::random_device rd;  //discrete 2 hw
+	//std::mt19937_64 engine(rd()); //discrete 2 hw for random variables
+	//std::uniform_real_distribution<double> dist(0, M_PI);  // example of a uniform distribution
+	//thetad = atan2(Xv[1], Xv[0]);  
+	float angle = float(rand() % 360) / 180.0 * M_PI; //from the code at the top
+	angle = float(rand() % 360) / 180.0 * M_PI; //from the code at the top
+	vd= SIMAgent::MaxVelocity;
+	thetad = angle;
+	tmp = vec2(vd*cos(thetad)*KNoise, vd*sin(thetad)*KNoise)*KWander; //webcourse multiply vectors by KNoise and KWander
 	return tmp;
 }
 
@@ -482,6 +486,7 @@ vec2 SIMAgent::Avoid()
 	// TODO: Add code here
 	*********************************************/
 	vec2 tmp;
+	
 	
 	return tmp;
 }
@@ -511,19 +516,20 @@ vec2 SIMAgent::Separation()
 		{
 			continue;
 		}
-		double neighbors = sqrt(distx*distx + disty*disty); //calculate length of the vector
+		double neighbors = sqrt(distx*distx + disty*disty); //calculate length of the neighbors vector
 		vec2 Distance = vec2(distx, disty);
 		if (neighbors < RNeighborhood);
 		{
-			S[0] = S[0] + (distx/neighbors*neighbors);
-			S[1] = S[1] + (disty/neighbors*neighbors);
+			S[0] = S[0] + (distx/(neighbors*neighbors));
+			S[1] = S[1] + (disty/(neighbors*neighbors));
 			
 		}
 	}
 	vec2 newbie = KSeparate * S;
 	newbie.Normalize();
-	vd = sqrt((newbie[0] * newbie[0] + (newbie[1] * newbie[1])));
+	vd = sqrt((newbie[0] * newbie[0] + (newbie[1] * newbie[1])));//length of the newbie vector
 	thetad = atan2(newbie[1], newbie[0]);
+	thetad = thetad + M_PI;
 	tmp = vec2(cos(thetad)*vd, sin(thetad)*vd);
 	return tmp;
 }
@@ -636,7 +642,7 @@ vec2 SIMAgent::Flocking()
 }
 
 /*
-*	Flocking behavior
+*  Flocking behavior
 *  Utilize the Separation, Arrival behaviors to determine the desired velocity vector
 *  You need to find the leader, who is always the first agent in SIMAgent::agents
 *  You need to compute the desired velocity and desired orientation
