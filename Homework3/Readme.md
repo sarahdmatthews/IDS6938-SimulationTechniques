@@ -62,15 +62,25 @@ The motion of the object is still not smooth.  Once it was gliding along the sur
 **(2)**: http://tigerprints.clemson.edu/cgi/viewcontent.cgi?article=1956&context=all_theses
 **(3)**: http://www.kfish.org/boids/pseudocode.html
 
+Arrival is the object heading to a desired position at a desired velocity and slows down when it gets close to the target position.  
+Departure is the object heading away from a desired position to another position with a desired velocity.  
+Seek is the object going toward a target and flee is the object going away from the target.
 
 | Behaviors:Seek, Flee, Arrival, Departure | 
 | ------------- | 
 | ![](images/Behaviors.png?raw=true)  | 
 
 
-
+Wander is the object moving randomly about.
 To implement wander, we read that in one of our references above that wander add a random number using rand command.  Thus, we reused the code from our discrete 2, homework 2 assignment and implemented
-the random number generator code from that homework to make the object wander.
+the random number generator code from that homework to make the object wander. However, after discussion with Alex, was advised to use code in the beginning of the file that contained Wander elements
+Using webcourse information to multiple returned vectors by KNoise and KWander for final vectors.
+
+Obstacle Avoidance 
+
+| Behaviors: Arrival, Departure, Wander, Separation with 10 | 
+| ------------- | 
+| ![](images/Group1.png?raw=true)  | 
 
 
 
@@ -81,9 +91,18 @@ the random number generator code from that homework to make the object wander.
 * Flocking
 * Leader Following
 
-In one of the references it recommended to do alignment first, then cohension and separation is a simple change in code where.  
+In group behaviors, BOIDS adhere to a set of rules.  Separation is when the BOIDS try to avoid each other, repulsion.  Alignment is where they steer toward a single average heading of neighbors.
+Cohesion is when they go towards the Center of Mass of the immediate neighbor and change in velocity to position, they are attracted to each other. 
 
+In one of the references it recommended to do alignment first, then cohension and separation is a simple change in code where.  I was not successful in this and received some help from
+Roberto on the Separation code initially. The objects arrive at the target and the separation rule is applied.  The BOIDS twist themselves to separate, following the rules very slowly.
+When the alignment rules are applied, the objects again twist slowly to align with their immediate neighbor.  The cohesion rule makes them all disappear.  Since Flocking and Leader Following
+involves all three group behaviors (Separation, cohesion and Alignment), I was not fully able to implement this based on my limited coding.  I would have summed the rules together and add them to the
+desired velocity.  For leader following, the group needs to follow a leader.  I would again use a summation of forces (arrival, separation and avoidance) and then add it to the current position.  
 
+| Behaviors: Separation, Alignment, Cohesion | 
+| ------------- | 
+| ![](images/Group2.png?raw=true)  | 
 
 
 As an aside, my numerous hours completing work for this class took away hours from my family.  In this assignment, I decided to include my 8 year old daughter.  Here she is playing with
@@ -91,7 +110,7 @@ the agent based models.  This was fun and memorable to her.
 
 
 | My 8 year old daughter and the Agent Based Simulations| 
-| ------------- | | ------------- | 
+| ------------- |
 | ![](images/VidyaHW3.jpg?raw=true)  | | ![](images/VidyaHW3pic.jpg?raw=true)  | 
 
 
@@ -183,7 +202,7 @@ This picture shows both the traffic and intensity ped statistics for the model.
 
 | UCF 5th Floor Hitt Library Model with Intesity and Traffic Stats| 
 | ------------- | 
-| ![](images/PedStas.png?raw=true)  |
+| ![](images/PedStats.png?raw=true)  |
 
 
 As a follow up, I sent the model to Librarian Frank Allen with some additional questions. Here is the feedback I received "Hi Sarah, Impressive work you are doing."

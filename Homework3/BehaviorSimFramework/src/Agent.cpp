@@ -604,30 +604,35 @@ vec2 SIMAgent::Cohesion()
 	// TODO: Add code here  Cohesion goes towards the Center of Mass of the immediate neighbor and change in velocity to position
 	*********************************************/
 	vec2 tmp;
-	//SIMAgent::agents[i];
+	////SIMAgent::agents[i];
 	vec2 S = vec2(0.0, 0.0); //steering force
-	vec2 C = vec2(0.0, 0.0); //center of mass
+	//vec2 C = vec2(0.0, 0.0); //center of mass
 	float agents_number = 0;  //number of agents
-	for (int i = 0; i < agents.size; i++);
-	{
-		vec2 dist = GPos - (SIMAgent::agents[i]->GPos); //all the neighbors of the current particle
-		int distx = dist[0];
-		int disty = dist[1];
-		float neighbors = sqrt(distx*distx + disty*disty); //calculate length of the vector
-		if (neighbors < RNeighborhood);
-		{
-			S[0] = S[0] + agents[i]->GPos[0];   //sum all the positions of the neighbors on the x
-			S[1] = S[1] + agents[i]->GPos[0]; //sum all the positions of the neighbors on the y
-			agents_number = agents_number + 1;   //sum all the neighbors add 1 to repeat
-		}
-	}
+	//for (int i = 0; i < agents.size; i++);
+	//{
+	//	vec2 dist = GPos - (SIMAgent::agents[i]->GPos); //all the neighbors of the current particle
+	//	int distx = dist[0];
+	//	int disty = dist[1];
+	//	float neighbors = sqrt(distx*distx + disty*disty); //calculate length of the vector
+	//	if (neighbors < RNeighborhood);
+	//	{
+	//		S[0] = S[0] + agents[i]->GPos[0];   //sum all the positions of the neighbors on the x
+	//		S[1] = S[1] + agents[i]->GPos[0]; //sum all the positions of the neighbors on the y
+	//		agents_number = agents_number + 1;   //sum all the neighbors add 1 to repeat
+	//	}
+	//}
 	vec2 Xm = S / agents_number;
-	Xm.Normalize();
+	//Xm.Normalize();
+	tmp = goal - GPos;  //Webcourse states Cohesion similar to Goal seeking.  
+	tmp.Normalize();
+	thetad = atan2(tmp[1], tmp[0]);
+	thetad = thetad + M_PI;
+	vd = SIMAgent::KCohesion;
 	vec2 VCoh = KCohesion *(Xm - GPos);
 	vd = sqrt((VCoh[0] * VCoh[0] + (VCoh[1] * VCoh[1])));
-	thetad = atan2(VCoh[1], VCoh[0]);
+	//thetad = atan2(VCoh[1], VCoh[0]);
 	tmp = vec2(cos(thetad)*vd, sin(thetad)*vd);
-
+	
 	return tmp;
 }
 
