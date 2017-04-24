@@ -2,8 +2,11 @@
 C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\atlmfc\include\afx.h(38): warning C4996: 'MBCS_Support_Deprecated_In_MFC': MBCS support in MFC is deprecated and may be removed in a future version of MFC.
   C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\atlmfc\include\afx.h(33): note: see declaration of 'MBCS_Support_Deprecated_In_MFC'
   _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
-C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework3\BehaviorSimFramework\src\Agent.cpp(521): warning C4018: '<': signed/unsigned mismatch
-C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework3\BehaviorSimFramework\src\Agent.cpp(532): warning C4390: ';': empty controlled statement found; is this the intent?
-C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework3\BehaviorSimFramework\src\Agent.cpp(567): warning C4018: '<': signed/unsigned mismatch
-C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework3\BehaviorSimFramework\src\Agent.cpp(576): warning C4390: ';': empty controlled statement found; is this the intent?
+C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework3\BehaviorSimFramework\src\Agent.cpp(526): warning C4018: '<': signed/unsigned mismatch
+C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework3\BehaviorSimFramework\src\Agent.cpp(537): warning C4390: ';': empty controlled statement found; is this the intent?
+C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework3\BehaviorSimFramework\src\Agent.cpp(573): warning C4018: '<': signed/unsigned mismatch
+C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework3\BehaviorSimFramework\src\Agent.cpp(581): warning C4390: ';': empty controlled statement found; is this the intent?
+C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework3\BehaviorSimFramework\src\Agent.cpp(669): warning C4930: 'vec2 Cohesion(void)': prototyped function not called (was a variable definition intended?)
+C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework3\BehaviorSimFramework\src\Agent.cpp(670): warning C4930: 'vec2 Align(void)': prototyped function not called (was a variable definition intended?)
+C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework3\BehaviorSimFramework\src\Agent.cpp(668): warning C4930: 'vec2 Separation(void)': prototyped function not called (was a variable definition intended?)
   Flocking.vcxproj -> C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework3\BehaviorSimFramework\build\Debug\Flocking.exe

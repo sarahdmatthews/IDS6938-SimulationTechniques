@@ -229,7 +229,7 @@ void SIMAgent::InitValues()
 	SIMAgent::KSeparate, SIMAgent::KAlign, SIMAgent::KCohesion.
 	*********************************************/
 	Kv0 = 10.0;   //used Utube video for these parameters
-	Kp1 = 200.0;
+	Kp1 = -200.0;
 	Kv1 = 32.0;
 	KArrival = 0.05;
 	KDeparture = 15.0;
@@ -348,7 +348,7 @@ vec2 SIMAgent::Seek()
 	tmp.Normalize();
 	/*thetad = atan2(tmp[0], tmp[1]);*/
 	thetad = atan2(tmp[1], tmp[0]);
-	thetad = thetad + M_PI; 
+	//thetad = thetad + M_PI; 
 	/*ClampAngle(thetad);*/
 	vd = SIMAgent::MaxVelocity;
 	tmp = vec2((cos(thetad)*vd), (sin(thetad)*vd));
@@ -400,7 +400,7 @@ vec2 SIMAgent::Arrival()
 	double Y = Xd.Length(); //desired position 
 	vd = Xd.Length() * KArrival;  //desired velocity is desired position multiply by the speed of the object
 	thetad = atan2(Xd[1], Xd[0]); //thetad is my angle
-	thetad += M_PI;
+	//thetad += M_PI;
 	if (Y > 0.0) // if my desired position is greater than zero then 
 	{
 		return vec2((cos(thetad)*vd), (sin(thetad)*vd));
@@ -430,6 +430,7 @@ vec2 SIMAgent::Departure()
 	double Y = Xd.Length();
 	vd = Xd.Length() * KDeparture;
 	thetad = atan2(Xd[1], Xd[0]);
+	thetad += M_PI;
 	if (Y > 0.0)
 	{
 		return vec2((cos(thetad)*vd), (sin(thetad)*vd));
@@ -516,8 +517,12 @@ vec2 SIMAgent::Separation()
 	// TODO: Add code here
 	*********************************************/
 	vec2 tmp;
+	//tmp = goal - GPos;
+	//float i; 
 	//SIMAgent::agents[i];
-	vec2 S = vec2(0.0, 0.0);
+	//SIMAgent::agents.size();   //will tell you how many agents are currently in the system. Webcourse
+	//SIMAgent * tmp = SIMAgent::agents[i];   //calls an agent that is a local agent. Webcourse
+	vec2 S = vec2(0.0, 0.0); //start position vector
 	for (int i = 0; i< agents.size(); i++)
 	{
 		vec2 dist = GPos - agents[i]->GPos; //compute a vector for each neighbor by subtracting position from current position
@@ -557,36 +562,47 @@ vec2 SIMAgent::Separation()
 vec2 SIMAgent::Alignment()
 {
 	/*********************************************
-	// TODO: Add code here  do alignment first, then cohension and separation is a simple change in code https://gamedevelopment.tutsplus.com/tutorials/3-simple-rules-of-flocking-behaviors-alignment-cohesion-and-separation--gamedev-3444
+	// TODO: Add code here  do alignment first, then cohesion and separation is a simple change in code https://gamedevelopment.tutsplus.com/tutorials/3-simple-rules-of-flocking-behaviors-alignment-cohesion-and-separation--gamedev-3444
 	*********************************************/
-	//alignment is causes the agent to line up with the closest agent nearby
+	//alignment causes the agent to line up with the closest agent nearby
 	vec2 tmp;
 	//SIMAgent::agents[i];
-	vec2 A = Arrival();
+	//vec2 A = Arrival();
+	vec2 A = vec2(0.0, 0.0);
 	int agents_number = 0;
 	for (int i = 0; i< agents.size(); i++)
 	{
-		vec2 dist = GPos - agents[i]->GPos;  //dist is the goal position minus the position of the agent
+		//vec2 dist = GPos - agents[i]->GPos;  //dist is the goal position minus the position of the agent
+		vec2 dist = agents[i]->GPos - GPos;
 		int distx = dist[0];
 		int disty = dist[1];
-		if (distx == 0 && disty == 0)
+		//double neighbors = dist.Length();
+		//if (distx == 0 && disty == 0)
+			if (dist.Length() < RNeighborhood);
+			{
+				A[0] = A[0] + cos(agents[i]->state[1] * agents[i]->state[2]);
+				A[1] = A[1] + cos(agents[i]->state[1] * agents[i]->state[2]);
+				agents_number++;
+			}
 		{
 		}
-		double neighbors = sqrt(distx*distx + disty*disty); //calculate length of the vector
-		if (neighbors < KAlign);
+		//double neighbors = sqrt(distx*distx + disty*disty); //calculate length of the vector
+		//if (neighbors < KAlign);
 		{
-			A[0] = A[0] + cos(agents[i]->state[1] * agents[i]->state[2]);
+			/*A[0] = A[0] + cos(agents[i]->state[1] * agents[i]->state[2]);
 			A[1] = A[1] + cos(agents[i]->state[1] * agents[i]->state[2]);
-			agents_number++;
+			agents_number++;*/
 		}
 	}
 	//vec2 newbie = KAlign / agents_number*A;
-	vec2 newbie = A / agents_number;
+	vec2 newbie = A /agents_number;
 	newbie.Normalize();
-	vd = sqrt((newbie[0] * newbie[0] + (newbie[1] * newbie[1]))); 
-	//thetad = atan2(newbie[1], newbie[0]);
-	//tmp = vec2(cos(thetad)*vd, sin(thetad)*vd);
-	tmp = newbie;
+	//vd = sqrt((newbie[0] * newbie[0] + (newbie[1] * newbie[1]))); //length of vector
+	vd = newbie.Length() * KArrival;
+	Truncate(vd, 0, MaxVelocity);
+	thetad = atan2(newbie[1], newbie[0]);
+	tmp = vec2(cos(thetad)*vd, sin(thetad)*vd);
+	//tmp = newbie;
 	return tmp;
 }
 
@@ -649,7 +665,13 @@ vec2 SIMAgent::Flocking()
 	// TODO: Add code here
 	*********************************************/
 	vec2 tmp;
+	vec2 separation = Separation();
+	vec2 cohesion = Cohesion();
+	vec2 align = Alignment();
 
+	vec2 flocking = (separation * KSeparate) + (cohesion * KCohesion) + (align * KAlign); //webcourse
+	//vec2 flocking = SIMAgent::KSeparate + SIMAgent::KCohesion + SIMAgent::KAlign;
+	
 	return tmp;
 }
 
@@ -667,6 +689,8 @@ vec2 SIMAgent::Leader()
 	// TODO: Add code here
 	*********************************************/
 	vec2 tmp;
-
+	vec2 separation = Separation();
+	vec2 arrival = Arrival();
+	vec2 leader = (separation * KSeparate) + (arrival * KArrival); //webcourse
 	return tmp;
 }

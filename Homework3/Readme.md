@@ -28,7 +28,7 @@ Initially used trial and error method to figure out these parameters but then us
 the behaviors should look like. Bradley Crusco https://www.youtube.com/watch?v=tEGR6NN-cQc  These parameters are adjusted when doing the group behaviors.
 
 	Kv0 = 10.0;  
-	Kp1 = 200.0;
+	Kp1 = -200.0; //changed to negative for the objects to move better different from video
 	Kv1 = 32.0;
 	KArrival = 0.05;
 	KDeparture = 15.0;  //velocity of departure
@@ -100,6 +100,10 @@ When the alignment rules are applied, the objects again twist slowly to align wi
 involves all three group behaviors (Separation, cohesion and Alignment), I was not fully able to implement this based on my limited coding.  I would have summed the rules together and add them to the
 desired velocity.  For leader following, the group needs to follow a leader.  I would again use a summation of forces (arrival, separation and avoidance) and then add it to the current position.  
 
+I was reviewing Webcourses for the final and saw that it was updated with the flocking and leader math as well as information on cohesion and separation.  I implemented some code but it does not work.
+Writing code requires more time that one day for me.  Thus, I will settle for the information I have provided and if I am able to get through my preparation for the final, I will add additional code to
+make the system work.  
+
 | Behaviors: Separation, Alignment, Cohesion | 
 | ------------- | 
 | ![](images/Group2.png?raw=true)  | 
@@ -110,7 +114,7 @@ the agent based models.  This was fun and memorable to her.
 
 
 | My 8 year old daughter and the Agent Based Simulations| 
-| ------------- |
+| ------------- || ------------- |
 | ![](images/VidyaHW3.jpg?raw=true)  | | ![](images/VidyaHW3pic.jpg?raw=true)  | 
 
 
