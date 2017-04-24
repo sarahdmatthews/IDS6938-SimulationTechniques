@@ -2,10 +2,25 @@
 C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\atlmfc\include\afx.h(38): warning C4996: 'MBCS_Support_Deprecated_In_MFC': MBCS support in MFC is deprecated and may be removed in a future version of MFC.
   C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\atlmfc\include\afx.h(33): note: see declaration of 'MBCS_Support_Deprecated_In_MFC'
   _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
-C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework3\BehaviorSimFramework\src\Agent.cpp(510): warning C4018: '<': signed/unsigned mismatch
-C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework3\BehaviorSimFramework\src\Agent.cpp(521): warning C4390: ';': empty controlled statement found; is this the intent?
-C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework3\BehaviorSimFramework\src\Agent.cpp(556): warning C4018: '<': signed/unsigned mismatch
-C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework3\BehaviorSimFramework\src\Agent.cpp(565): warning C4390: ';': empty controlled statement found; is this the intent?
-C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework3\BehaviorSimFramework\src\Agent.cpp(599): warning C4018: '<': signed/unsigned mismatch
-C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework3\BehaviorSimFramework\src\Agent.cpp(610): warning C4390: ';': empty controlled statement found; is this the intent?
-  Flocking.vcxproj -> C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework3\BehaviorSimFramework\build\Debug\Flocking.exe
+C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework3\BehaviorSimFramework\src\Agent.cpp(521): warning C4018: '<': signed/unsigned mismatch
+C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework3\BehaviorSimFramework\src\Agent.cpp(532): warning C4390: ';': empty controlled statement found; is this the intent?
+C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework3\BehaviorSimFramework\src\Agent.cpp(567): warning C4018: '<': signed/unsigned mismatch
+C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework3\BehaviorSimFramework\src\Agent.cpp(576): warning C4390: ';': empty controlled statement found; is this the intent?
+C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework3\BehaviorSimFramework\src\Agent.cpp(611): error C3867: 'std::vector<SIMAgent *,std::allocator<_Ty>>::size': non-standard syntax; use '&' to create a pointer to member
+          with
+          [
+              _Ty=SIMAgent *
+          ]
+C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework3\BehaviorSimFramework\src\Agent.cpp(611): error C2446: '<': no conversion from 'unsigned int (__thiscall std::vector<SIMAgent *,std::allocator<_Ty>>::* )(void) noexcept const' to 'int'
+          with
+          [
+              _Ty=SIMAgent *
+          ]
+  C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework3\BehaviorSimFramework\src\Agent.cpp(611): note: There is no context in which this conversion is possible
+C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework3\BehaviorSimFramework\src\Agent.cpp(613): error C2065: 'i': undeclared identifier
+C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework3\BehaviorSimFramework\src\Agent.cpp(613): error C2227: left of '->GPos' must point to class/struct/union/generic type
+C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework3\BehaviorSimFramework\src\Agent.cpp(619): error C2065: 'i': undeclared identifier
+C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework3\BehaviorSimFramework\src\Agent.cpp(619): error C2227: left of '->GPos' must point to class/struct/union/generic type
+C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework3\BehaviorSimFramework\src\Agent.cpp(620): error C2065: 'i': undeclared identifier
+C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework3\BehaviorSimFramework\src\Agent.cpp(620): error C2227: left of '->GPos' must point to class/struct/union/generic type
+C:\Users\sbull99\Desktop\IDS6938-SimulationTechniques\Homework3\BehaviorSimFramework\src\Agent.cpp(617): warning C4390: ';': empty controlled statement found; is this the intent?

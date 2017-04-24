@@ -369,7 +369,8 @@ vec2 SIMAgent::Flee()
 	// TODO: Add code here
 	*********************************************/
 	vec2 tmp;
-	tmp = goal - GPos;
+	//tmp = goal - GPos;
+	tmp = GPos - goal; //fleeing is the difference between the particle position and the target
 	tmp.Normalize();
 	thetad = atan2(tmp[0], tmp[1]);
 	//thetad = atan2(tmp[1], tmp[0]);
@@ -395,17 +396,17 @@ vec2 SIMAgent::Arrival()
 	// TODO: Add code here   this is a combo of webcourse information and my class notes
 	*********************************************/
 	vec2 tmp;
-	vec2 Xd= goal - GPos; 
-	double Y = Xd.Length();
-	vd = Xd.Length() * KArrival;
-	thetad = atan2(Xd[1], Xd[0]);
+	vec2 Xd= goal - GPos; //desired position
+	double Y = Xd.Length(); //desired position 
+	vd = Xd.Length() * KArrival;  //desired velocity is desired position multiply by the speed of the object
+	thetad = atan2(Xd[1], Xd[0]); //thetad is my angle
 	thetad += M_PI;
-	if (Y > 0.0)
+	if (Y > 0.0) // if my desired position is greater than zero then 
 	{
 		return vec2((cos(thetad)*vd), (sin(thetad)*vd));
 	}
-	float M = SIMAgent::KArrival;
-	float vn = (M * vd / radius);
+	float M = SIMAgent::KArrival;   //KArrival is my speed 
+	float vn = (M * vd / radius);  //speed x desired velocity/ radius
 	return vec2((cos(thetad)*vn), (sin(thetad)*vn));
 	return tmp;
 }
@@ -485,8 +486,18 @@ vec2 SIMAgent::Avoid()
 	/*********************************************
 	// TODO: Add code here
 	*********************************************/
+	//avoid needs the dot product of a vector and it normal vector at point of intersection
+	//float Vector3f::Dot(const Vector3f &b) { dot product from earlier lecture
+	//+return X * b.X + Y * b.Y + Z * b.Z;
 	vec2 tmp;
-	
+	//vec2 Xd = goal - GPos; //desired position
+	//double Y = Xd.Length(); //desired position 
+	//vd = Xd.Length() * KArrival;  //desired velocity is desired position multiply by the speed of the object
+	//thetad = atan2(Xd[1], Xd[0]); //thetad is my angle
+	//thetad += M_PI /2;
+	//for (int i = 0; i< env->obstaclesNum; i++) //obstaclesNum is the number of obstacles given above
+	//{
+		
 	
 	return tmp;
 }
@@ -509,7 +520,7 @@ vec2 SIMAgent::Separation()
 	vec2 S = vec2(0.0, 0.0);
 	for (int i = 0; i< agents.size(); i++)
 	{
-		vec2 dist = GPos - agents[i]->GPos;
+		vec2 dist = GPos - agents[i]->GPos; //compute a vector for each neighbor by subtracting position from current position
 		int distx = dist[0];
 		int disty = dist[1];
 		if (distx == 0 && disty == 0)
@@ -520,12 +531,12 @@ vec2 SIMAgent::Separation()
 		vec2 Distance = vec2(distx, disty);
 		if (neighbors < RNeighborhood);
 		{
-			S[0] = S[0] + (distx/(neighbors*neighbors));
-			S[1] = S[1] + (disty/(neighbors*neighbors));
+			S[0] = S[0] + (distx/(neighbors*neighbors)); //finding the closest neighbor on the x plane
+			S[1] = S[1] + (disty/(neighbors*neighbors)); //finding the closest neighbor on the  y plan
 			
 		}
 	}
-	vec2 newbie = KSeparate * S;
+	vec2 newbie = KSeparate * S;  //newbie is the desired velocity vector
 	newbie.Normalize();
 	vd = sqrt((newbie[0] * newbie[0] + (newbie[1] * newbie[1])));//length of the newbie vector
 	thetad = atan2(newbie[1], newbie[0]);
@@ -590,28 +601,24 @@ vec2 SIMAgent::Alignment()
 vec2 SIMAgent::Cohesion()
 {
 	/*********************************************
-	// TODO: Add code here  Cohesion goes towards the Center of Mass and change in velocity to position
+	// TODO: Add code here  Cohesion goes towards the Center of Mass of the immediate neighbor and change in velocity to position
 	*********************************************/
 	vec2 tmp;
 	//SIMAgent::agents[i];
-	vec2 S = vec2(0.0, 0.0);
-	int agents_number = 0;
-	for (int i = 0; i< agents.size(); i++)
+	vec2 S = vec2(0.0, 0.0); //steering force
+	vec2 C = vec2(0.0, 0.0); //center of mass
+	float agents_number = 0;  //number of agents
+	for (int i = 0; i < agents.size; i++);
 	{
-		vec2 dist = GPos - agents[i]->GPos;
+		vec2 dist = GPos - (SIMAgent::agents[i]->GPos); //all the neighbors of the current particle
 		int distx = dist[0];
 		int disty = dist[1];
-		if (distx == 0 && disty == 0)
-		{
-			continue;
-		}
-		double neighbors = sqrt(distx*distx + disty*disty); //calculate length of the vector
-		vec2 Distance = vec2(distx, disty);
+		float neighbors = sqrt(distx*distx + disty*disty); //calculate length of the vector
 		if (neighbors < RNeighborhood);
 		{
-			S[0] = S[0] + agents[i]->GPos[0];
-			S[1] = S[1] + agents[i]->GPos[0];
-			agents_number = agents_number + 1;
+			S[0] = S[0] + agents[i]->GPos[0];   //sum all the positions of the neighbors on the x
+			S[1] = S[1] + agents[i]->GPos[0]; //sum all the positions of the neighbors on the y
+			agents_number = agents_number + 1;   //sum all the neighbors add 1 to repeat
 		}
 	}
 	vec2 Xm = S / agents_number;
